@@ -23,7 +23,7 @@ var cli = {};
  * @const
  * @type {Array.<string>}
  */
-cli.options = [];
+cli.options = ['port', 'config'];
 
 /**
  * @const

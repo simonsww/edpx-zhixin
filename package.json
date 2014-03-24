@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "edp-core": "~1.0.4",
-    "edp-config": "~1.0.0"
+    "edp-config": "~1.0.0",
+    "edp-webserver": "~0.5.0"
   },
   "repository": {
     "type": "git",
