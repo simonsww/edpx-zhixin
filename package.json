@@ -19,8 +19,16 @@
     "url": "https://github.com/ecomfe/edpx-zhixin/issues"
   },
   "contributors": [
-    { "name": "sekiyika", "email" : "px.pengxing@gmail.com" }
+    {
+      "name": "sekiyika",
+      "email": "px.pengxing@gmail.com"
+    }
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "jasmine-node": "^1.14.2",
+    "grunt-jasmine-node": "^0.2.1"
+  }
 }
