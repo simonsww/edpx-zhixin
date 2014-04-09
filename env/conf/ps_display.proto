@@ -1,0 +1,568 @@
+
+package b2log;
+//  @description: 这个枚举列出产品ID，ID一旦分配出去就不会更改。我们会根据入库的情况不断增加新的产品
+enum ProductID {
+    PS                    = 0; // 网页搜索
+    TIEBA                 = 1; // 百度贴吧
+    IKNOW                 = 2; // 百度知道
+    MAP                   = 3; // 百度地图
+    WISE                  = 4; // 移动搜索部
+    VOICE_ASSISTANT       = 5; // 语音助手
+    VOICE_SEARCH          = 6; // 语音搜索
+    VOICE_INPUT           = 7; // 语音输入
+    SUMERU_ENGINE         = 8; // 安卓手机浏览器内核
+    UUCUN                 = 9; // uucun基础日志
+    ONEKEY_ROOT           = 10; // 一键ROOT
+    PSS                   = 11; // 个人结构存储
+    dx_os                 = 12; // 点心优化大师
+    FAVO                  = 13; // 百度收藏
+    LC                    = 14; // 移动应用更新平台
+    WISE_SUOPING          = 15; // 锁屏
+    DX_FRONT              = 16; // 点心第三方日志
+    XCLOUD                = 17; // 厂商云
+    BFE                   = 18; // 百度统一前端
+    PUSH                  = 19; // 云推送
+    DT                    = 20; // 百度数据团队
+    DIANXIN_MASTER        = 21; // 点心优化大师
+    JIA_SU_LE             = 22; // 加速乐
+    FRONTIA               = 23; // 云巴士
+	NOVA				  = 24; // 网盟
+    SEARCHBOX_APP         = 25; // 百度移动搜索
+    APPSEARCH             = 26; // 百度手机助手
+    MEDIA_CLOUD           = 27; // 媒体云
+    MOBILE_IME            = 28; // 手机输入法
+    WISE_BOOKSTORE        = 29; // 无线书城
+    MOBILE_BROWSER_KERNEL = 30; // 无线浏览器内核
+    MOBILE_BROWSER        = 31; // 无线浏览器
+}
+
+enum UrlID{
+    AS_ID                   = 0;//自然结果
+    SP_ID                   = 1;//Aladdin
+    PP_ID                   = 2;//推广
+    PPIM_ID                 = 3;//赞助商链接
+    LEFT_ZX_ID			    = 4;//左侧知心
+    UNKNOW_ID               = 5;//无法确定其来源
+}
+
+enum ResultID{
+    TOPZHIXINRESULT            = 0; //顶部队列    上测SP（知心）
+    LEFTZHIXINRESULT           = 1; //左侧队列    左侧SP （知心）
+    RIGHTZHIXINRESULT          = 2; //右侧队列    右侧SP（知心）
+    ASPRESULT                  = 3; //广告队列    ASP 广告队列
+}
+
+//  @description: 
+message BaiduLog {
+
+	//@brief:
+    //@format:
+    //@example:
+    //@description:
+    required ProductID product                     = 1;
+
+    //  处理的时间戳，精确到ms
+    required uint64 timestamp                      = 2;
+
+    //  标识用户action的唯一的logid。logid主要用处将处理逻辑能够串联起来。我们强烈建议one action one logid。如果上游传入logid，本地将不要再重复生成，而是将上游的logid设置本字段中。
+    required uint64 logid                          = 3;
+    
+
+    //  cookie中的BAIDUID字段或者url中对应的参数
+    optional string baiduid                        = 4;			
+
+    //  用户的IP的信息，如果是采用点分十进制，请转换为无符号整数
+    optional fixed32 user_ip                       = 8;
+
+    //  查询词，对应于语音注释为语音转换之后的query词。
+    optional string query                          = 14;
+
+    //------------------------------------------------------------------
+    //The ID less than 128 is reserved for common fields.
+    //------------------------------------------------------------------
+
+    //your schema fields add here...
+    
+    
+    //queryId，每次查询系统生成的唯一id  
+    optional string query_id                   = 129;
+    
+    //结果第x页 目前只记录前2页           
+    optional uint32 page_no                    = 130;
+    
+    //页面所有结果数，包括广告
+    optional uint32  as_num                    = 131;
+
+
+	//用户的自然数表示的用户ip
+    optional uint32 user_uint_ip               = 132;
+
+    //模板名/计费名
+    optional string account_name               = 133;
+
+    //本次访问是否需要aladdin结果（由模板决定）
+    optional uint32 need_sp                    = 134;
+
+    //显示结果数
+    optional uint64 as_datadisp_num            = 135;
+
+    //实际显示结果数
+    optional uint32 as_datalist_num            = 136;
+
+    //rs结果 rs提示词
+    repeated  RsPhrase rs_phrase               = 137;
+
+    //se提示词
+    repeated string se_word                    = 138;
+
+    //结果页请求的URL 
+    //'urlParam' => '/s?wd=%C1%F5%B5%C2%BB%AA&rsv_bp=0&oq=liude&rsp=0&f=3&inputT=3970'
+    optional string url_param                  = 139; 
+
+    //日文广告显示数
+    optional uint32 ad_jp_num                  = 140;
+
+    //se是否被真正被展现
+    optional uint32 is_se_info                 = 141;
+
+    //app提供的结果个数
+    optional uint32 app_list_num               = 142;
+
+    //fav ico的个数
+    optional uint32 favo_item_num              = 143;
+
+    //新抽样id列表
+    repeated uint32 sampling_id                = 144;
+
+    //透传的k-v数据
+    //ex: 'ac_query_strategy' => '36569089'
+    //ex: 'ac_real_res' => '760'
+    repeated DispData g_sample_log             = 145;   
+
+    //topResult 个数
+    optional uint32 top_result_num             = 146;
+
+    //rightResult 个数
+    optional uint32 right_result_num           = 147;
+
+    //arrData ['uiData']
+    optional uint32 ad_right_old               = 148;
+
+    //ecResult ['advRightNum']
+    optional uint32 ad_right_new               = 149;
+
+    //ecResult ['advStrategyV1']
+    optional uint32 adv_strategy_v1            = 150;
+
+    //ecResult ['advStrategyV2']
+    optional uint32 adv_strategy_v2            = 151;
+
+    //ecResult ['securityPlanTip']
+    optional uint32 ad_security_plan_tip       = 152;
+
+    //unknow
+    optional uint32 right_prompt_stra          = 153;
+
+    //interleaving的log
+    optional string inter_click_log            = 154;
+
+    //上次访问的qid
+    optional string bqid                       = 155;
+
+    //通用提示
+    repeated uint32 prompt_node                = 156;
+
+	//todo
+    optional string cq                         = 157;
+
+    //国际化语言
+    optional string displ                      = 158; 
+
+    //la参数
+    optional string la                         = 159;          
+
+	//格式化时间
+    optional string datetime                   = 160;
+    
+    //bufTempLog
+    optional string buf_temp_log			   = 161;
+    
+    //urlInfo
+    repeated UrlInfo url_info				   = 162;
+	
+    //resultInfo
+	repeated ResultInfo result_info			   = 163;
+    
+    //识别出的query语言
+    optional int32 qryl						   = 164;
+    
+    //标记是否进行了纠错全替换
+    optional bool sse						   = 165;
+    
+    //百度 instant search
+    optional BaiduIs baiduis				   = 166;
+}
+
+//
+message BaiduIs{
+	
+    //检索模式 0：normal 1：预查询 2：confirm
+	optional uint32 mod 					  = 1;
+    
+    //confirm qid 默认值'0'，只有当mod为2时 有意义
+    optional string cqid	                  = 2;
+    
+    //IS session ID 默认值 '0'；辅助标识一次完整的IS session 过程
+    optional string  isid                     = 3;
+    
+    //校验字段，辅助后端校验请求合法性。
+    optional string  chk                      = 4;
+    
+    //区分是IS/HIS请求。1-IS请求   0/空-HIS请求
+    optional int32 isbd		      = 5;
+    
+    //记录是第几次confirm确认，只有mod为2时有意义
+    optional int32	csq				=	6;
+}
+
+//Query相关扩展
+message RsPhrase{
+	//提示词
+    optional string phrase                     = 1;
+	//val
+	optional string rs_comefrom                = 2;
+}
+
+//透传的K-V数据
+message DispData{
+    // key
+    optional string key                       = 1;
+    // val
+    optional string val                       = 2;
+}
+
+message SubUrlInfo{
+	//suburl
+    optional string sub_url                   = 1;
+    //subSiteId
+    optional uint32 sub_site_id               = 2;
+    
+}
+
+message ItemUriInfo{
+	//item uri 信息
+	repeated string uri 					 = 1;
+    
+    //drsv
+    optional string drsv                     = 2;
+    
+    //cardmd5
+    optional string cardid                   = 3;
+}
+
+message UrlInfo{
+    //结果位置
+    optional uint32 index                     = 1;
+    
+    //单条结果url信息
+    optional string url 					  = 2;
+	
+    //结果类型(标识类型 AS、SP、PP、PPIM)
+    optional UrlID url_type                   = 3;
+
+    //自然结果信息
+    optional AsUrlInfoLog as_log              = 4;
+
+    //阿拉丁信息
+    optional SpUrlInfoLog sp_log              = 5;
+
+    //推广信息
+    optional PPInfoLog pp_log                 = 6;
+
+    //赞助商信息
+    optional PPimInfoLog ppim_log             = 7;
+    
+    //左侧知心信息	
+    optional LeftZXUrlInfoLog left_zx_log	  = 8;
+    
+}
+
+message ResultInfo{
+    //结果位置
+    optional uint32 index                     = 1;
+    
+    //结果URL链接信息
+    optional string url						  = 2;
+
+    //结果类型（标识Result类型 目前类型有顶部知心、左侧知心、右侧知心、广告队列）
+    optional ResultID result_type             = 3;
+
+    //知心结果
+    optional ZhiXinResult zx_result           = 4;
+
+    //广告结果
+    optional AspResult ad_result              = 5;
+}
+
+message LeftZXUrlInfoLog{
+	//Unknow
+    optional uint32 is_cl_as                  = 1;
+
+    //数据策略ID
+    optional uint32 std_stg                   = 2;
+
+    //资源号的展现样式
+    optional uint32 std_stl                   = 3;
+
+    //Unknow
+    optional string url_jiucuo_flag           = 4; 
+
+    //策略
+    repeated uint32 strategys                 = 5;
+
+    //类别ID
+    optional uint64 category_id               = 6;
+
+    //卡片ID
+    optional uint32 card_id                   = 7;
+
+    //实体名称
+    optional string entity_name               = 8;
+
+    //实体uri
+    optional string uri                      = 9;
+
+    //模板名
+    optional string temp_name                 = 10;
+    
+    //itemUri信息
+    optional ItemUriInfo item_uri_info       = 11;
+    
+    //title 信息
+	optional string title 					 = 12;
+    
+    //burst_flag
+    optional int32 burst_flag                = 13;
+    
+    //知心的透传字段
+    repeated DispData g_sample_log           = 14;
+
+}
+
+
+message AsUrlInfoLog{
+
+    //url建库的基础赋权
+    optional uint32 weight                    = 1;
+
+    //urlNo 
+    optional uint32 url_no                    = 2;
+
+    // url 签名
+    optional uint32 suburl_sign               = 3;
+
+    //站点签名
+    optional uint32 site_sign1                = 4;
+
+	//Unknow
+    optional uint32 mix_signsitesign          = 5;
+
+    //黄反系数
+    optional uint32 mix_sign_sex              = 6;
+
+    //政治系数
+    optional uint32 mix_sign_pol              = 7;
+
+    //内容签名
+    optional uint32 cont_sign                 = 8; 
+
+	//Unknow
+    optional uint32 match_prop                = 9;
+
+    //Unknow
+    optional int32  info                     = 11;
+
+	//策略 2359296-0-257-32
+    repeated uint32 strategys				  = 12;
+
+    //权威性权重
+    optional string  auth_weight              = 13;
+
+    //时间因子
+    optional string  time_factor              = 14;
+
+    //页面类型
+    optional string page_type                 = 15;    
+
+    //Unknow
+    optional string field                     = 16;
+
+    //数据策略ID
+    optional uint32 std_stg                   = 17;
+
+    //某个策略标记ID下的样式ID
+    optional uint32 std_stl                   = 18;
+
+    //key-value字段，由大搜索US写入，为一个key-value对
+    repeated DispData g_sample_log            = 19;
+
+	//unknow
+    repeated string item_secure_id            = 20;
+
+	//Unknow
+    optional string fake_image_show           = 21;
+
+	//Unknow
+    optional string title                     = 22;
+
+	//Unknow
+    optional string show_time                 = 23;
+
+	//Unknow
+    optional string new_time_factor           = 24;
+
+	//Unknow
+    optional int32 burst_flag                = 25;    
+
+    //安全联盟
+    optional string safe_union                = 26;
+
+    //百度身份认证
+    optional string e_vcard                   = 27; 
+
+    //官网标记
+    optional string is_main                   = 28;
+
+    //todo
+    optional string as_url                    = 29;
+
+    //点击权重
+    optional uint32 click_weight              = 30;
+
+    //模板名
+    optional string template_name             = 31;
+    
+    //国际化favicon展现统计
+    optional string fav_url					  = 32;
+    
+    //unknow
+    optional ItemUriInfo item_uri_info        = 33;
+    
+    //摘要信息
+    optional string abstract_txt              = 34;
+    
+    //资源ID
+    optional string src_id					 = 35;
+    
+	//是否出图
+	optional bool img						 = 36;
+	
+}
+
+message SpUrlInfoLog {
+
+    //是否类聚了AS结果
+    optional uint32 is_cl_as                 = 1;
+
+    //PS us传递过来的信息
+    // 'dispLog' => '34:6:0'
+    optional string  disp_log                 = 2;
+
+    //策略 0-0-0-0
+    repeated uint32  strategys              = 3;
+
+    //透传K V 字段
+    repeated DispData g_sample_log             = 4;
+	
+    //Unknow
+    optional string  fake_image_show            = 5;
+
+ 	//Unknow
+    optional int32  burst_flag               = 6;
+
+    //子链url信息
+    repeated SubUrlInfo sub_url_info              = 7; 
+    
+    optional ItemUriInfo item_uri_info       = 8;
+    
+    //title 
+    optional string title = 9;
+    
+    //模板名
+    optional string temp_name                = 10;
+    
+    //摘要信息
+    optional string abstract_txt              = 34;
+}
+
+message PPInfoLog{
+    //广告数量
+    optional uint32 ad_num                    = 1;
+}
+
+message PPimInfoLog{
+    
+    //广告数量
+    optional uint32 ad_num                   = 1;
+
+    //猜测是客户的id，但也有人说是qid
+    optional string asp_uid                  = 2;
+
+}
+
+message ZhiXinResult{
+     
+    //Unknow
+    optional uint32 is_cl_as                   = 1;
+    
+    //数据策略ID
+    optional uint32 std_stg                   = 2;
+
+    //资源号的展现样式
+    optional uint32 std_stl                   = 3;
+
+    //Unknow
+    optional string url_jiucuo_flag           = 4; 
+
+    //策略
+    repeated uint32 strategys                 = 5;
+
+    //类别ID
+    optional uint64 category_id               = 6;
+
+    //卡片ID
+    optional uint32 card_id                   = 7;
+
+    //实体名称
+    optional string entity_name               = 8;
+
+    //实体uri
+    optional string uri                      = 9;
+
+    //模板名
+    optional string temp_name                = 10;
+    
+    //itemUriInfo
+    optional ItemUriInfo item_uri_info       = 11;
+    
+    //知心的透传字段
+    repeated DispData g_sample_log           = 12;
+    
+    //title 信息
+	optional string title 					 = 13;
+}
+
+message AspResult{
+
+    //猜测是客户的id，但也有人说是qid
+    optional string asp_uid                  = 1;
+
+    //是广告的类型
+    optional uint64 asp_src_id               = 2;
+
+    //数量
+    optional uint64 number                   = 3;
+    
+    //itemUriInfo
+    optional ItemUriInfo item_uri_info       = 4;
+}

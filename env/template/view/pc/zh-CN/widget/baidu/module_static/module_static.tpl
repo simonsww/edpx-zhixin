@@ -1,0 +1,1 @@
+{%function name="fis_widget_baidu_module_static"%}{%/function%}

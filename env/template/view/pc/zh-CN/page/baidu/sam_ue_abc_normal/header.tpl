@@ -1,0 +1,1 @@
+{%extends file='baidu/header.tpl'%} {%block name="head_style_ext"%}<style >body{color:#000}#head{padding-left:20px}#container{padding-left:20px}#rs{margin:20px 0 0}#search{padding:35px 0 16px 20px}#content_left .result-op,#content_left .result{margin-bottom:18px;border-collapse:collapse}.container_l #content_right{width:441px}</style>{%/block%}

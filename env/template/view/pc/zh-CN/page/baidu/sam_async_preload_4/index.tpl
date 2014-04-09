@@ -1,0 +1,1 @@
+{%extends file='baidu_async/index.tpl'%} {%block name="index_body_end"%}<script>window.__async_strategy=2;window.__link_switch=1;window.__show_is_tip=true;</script>{%/block%}

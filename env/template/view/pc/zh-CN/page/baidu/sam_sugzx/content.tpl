@@ -1,0 +1,1 @@
+{%extends file='baidu/content.tpl'%} {%block name="foot_script_logic_ext"%}<script>$(function(){$('#head form').addClass('showsugzhixin');});</script>{%/block%}

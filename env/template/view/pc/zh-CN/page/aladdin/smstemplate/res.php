@@ -1,0 +1,38 @@
+<?php 
+  class CssJs_Util_smstemplate
+   {
+      private static $cssStr = '';  // css字串，不含<style>和</style>标签
+      private static $jsStr  = 'A.merge("smstemplate",function(){A.setup(function(){var g=this,s=g.find(".op_smstemplate_container").get(0),V=g.find(".op_smstemplate_flash").eq(0),E=g.find(".op_smstemplate_smscont").get(0),b=g.find(".op_smstemplate_smspos").get(0),e=g.find(".op_smstemplate_left").get(0),W=e.getElementsByTagName("li"),l=g.find(".op_smstemplate_right").get(0),Y=g.find(".op_smstemplate_smsstrong").get(0),Q=g.find(".op_smstemplate_smstoggle").get(0),m=g.find(".op_smstemplate_smshrico").eq(0),a=g.find(".op_smstemplate_smshbn").eq(0),D=g.find(".op_smstemplate_ul").get(0),n=D.getElementsByTagName("li"),M=g.find(".op_smstemplate_smsinfoinp").get(0),u=g.find(".op_smstemplate_signinp").get(0),T=g.find(".op_smstemplate_tel").get(0),c=g.find(".op_smstemplate_code").get(0),H=g.find(".op_smstemplate_telInfo").get(0),N=g.find(".op_smstemplate_codeInfo").get(0),w=g.find(".op_smstemplate_btn").eq(0),x=g.find(".op_smstemplate_codeimg").get(0),j=g.find(".op_smstemplate_access").get(0),r=g.find(".op_smstemplate_faile").get(0),G=g.find(".op_smstemplate_ajax").get(0),F=0,y=g.data.flash,I=g.data.signature,t=g.data.tel,f=g.data.code,i=g.data.telinput,p=g.data.codeinput,C=W[0],S=Q.innerHTML,B=true,o=59,L=false,z,k;var d=Math.max(l.offsetHeight,e.offsetHeight),h=18;var O=function(Z){if(Z){b.style.height=e.style.height=d+Z+"px";E.style.height=d+Z+2+"px";s.style.height=d+Z+4+"px"}else{b.style.height=e.style.height=d+"px";if(!y){E.style.height=d+2+"px";s.style.height=d+4+"px"}}};O();var U=!!window.ActiveXObject&&!window.XMLHttpRequest;var K=function(){var Z=0;var aa=0;if(document.all){var ac=new ActiveXObject("ShockwaveFlash.ShockwaveFlash");if(ac){Z=1;VSwf=ac.GetVariable("$version");aa=parseInt(VSwf.split(" ")[1].split(",")[0])}}else{if(navigator.plugins&&navigator.plugins.length>0){var ac=navigator.plugins["Shockwave Flash"];if(ac){Z=1;var ad=ac.description.split(" ");for(var ab=0;ab<ad.length;++ab){if(isNaN(parseInt(ad[ab]))){continue}aa=parseInt(ad[ab])}}}}return{f:Z,v:aa}};if(y&&K().f&&K().v>10){FlashB=window.opr_smstemplate_flashB={};A.use("swf",function(){var Z=A.ui.swf();Z.create({id:"opr-smstemplate-swf",url:y,width:538,height:320,wmode:"opaque",allowscriptaccess:"always",allownetworking:"all"},V[0])});FlashB.onLoad=function(aa){var Z=parseInt(b.style.height)+2,ac=Z/100,ab=(320-Z)/100;if(!U){E.style.height=aa*ac+"px";s.style.height=320-(ab*aa)+2+"px"}if(aa==100){V.remove();R();if(U){E.style.height=100*ac+"px";s.style.height=320-(ab*100)+2+"px"}}}}else{}$.each(W,function(Z,aa){$(aa).on("click",function(){$(C).removeClass("op_smstemplate_active");C=aa;$(C).addClass("op_smstemplate_active");var ac=Z+1,ab=g.data["content"+ac];if(ab.length>0){P(ab);F=0;Y.innerHTML=F+1;S=Q.innerHTML=ab.length;D.style.top="0px";M.value=ab[0];if(S>1){a.addClass("OP_LOG_BTN")}else{a.removeClass("OP_LOG_BTN")}if(F==0){m.removeClass("OP_LOG_BTN")}else{m.addClass("OP_LOG_BTN")}}})});var P=function(aa){var ab="";for(var Z=0;Z<aa.length;Z++){ab+="<li>"+aa[Z]+"</li>"}D.innerHTML=ab};m.on("mouseover",function(){if(F>0){m.addClass("op_smstemplate_smshricoactive")}});a.on("mouseover",function(){if(F<S-1){a.addClass("op_smstemplate_smshbnactive")}});m.on("mouseout",function(){m.removeClass("op_smstemplate_smshricoactive")});a.on("mouseout",function(){a.removeClass("op_smstemplate_smshbnactive")});var X=function(aa,Z){A.use("animation",function(){k=A.ui.animation(function(){this.tween(aa).to(Z,200).onUpdate(function(){D.style.top=this.top+"px";Y.innerHTML=F+1}).start()}).start()})};m.on("click",function(){if(F>0){F--;X({top:-(F+1)*40},{top:-F*40});M.value=n[F].innerHTML;a.addClass("OP_LOG_BTN");if(F==0){m.removeClass("op_smstemplate_smshricoactive");m.removeClass("OP_LOG_BTN")}}});a.on("click",function(){if(F<S-1){F++;X({top:-(F-1)*40},{top:-F*40});M.value=n[F].innerHTML;m.addClass("OP_LOG_BTN");if(F==S-1){a.removeClass("op_smstemplate_smshbnactive");a.removeClass("OP_LOG_BTN")}}});$(u).on("focus",function(Z){$(u).addClass("op_smstemplate_inputColor");if(this.value==I){this.value=""}});$(u).on("blur",function(){if(this.value==""){this.value=I;$(u).removeClass("op_smstemplate_inputColor")}u.value=u.value.substring(0,6)});$(T).on("focus",function(Z){$(T).addClass("op_smstemplate_inputColor");if(this.value==i){this.value=""}});var q=function(){var Z=/^(13[0-9]|14[0-9]|15[3-9]|15[0-2]|18[0-9])\\d{8}$/g;$(T).removeClass("op_smstemplate_borred");$(H).removeClass("op_smstemplate_infoactive");H.innerHTML="";if(!Z.test(T.value)&&T.value!=""){H.innerHTML=t;$(T).addClass("op_smstemplate_borred");G.innerHTML="";return false}else{if(T.value==""){$(T).removeClass("op_smstemplate_inputColor");T.value=i}else{$(H).addClass("op_smstemplate_infoactive");return true}}};$(T).on("blur",function(Z){q()});function R(){$.ajax({url:g.data.codeajax+"&cb=rsmst",dataType:"jsonp",success:function(Z){if(L){return}if(Z.status==0){x.src=Z.vcode_url}},timeout:5000,jsonpCallback:"rsmst"})}g.find(".op_smstemplate_changecode").eq(0).on("click",R);if(!y){R()}$(c).on("focus",function(Z){$(c).addClass("op_smstemplate_inputColor");if(this.value==p){this.value=""}});var v=function(){$(c).removeClass("op_smstemplate_borred");N.innerHTML="";if(c.value!=""&&c==p){N.innerHTML=f;G.innerHTML="";$(c).addClass("op_smstemplate_borred");return false}else{if(c.value==""){$(c).removeClass("op_smstemplate_inputColor");c.value=p}}return true};$(c).on("blur",function(Z){v()});var J=false;w.on("click",function(){if(J){return}q();if(w.timeT){clearInterval(w.timeT)}var aa=u.value!=""&&u.value!=I?u.value+"_______送来中秋祝福：":"你的朋友通过百度搜索发送：";if(q()){var Z="phone="+encodeURIComponent(T.value)+"&msg_content="+encodeURIComponent(aa+M.value)+"&vcode="+encodeURIComponent(c.value)+"&ie=utf-8&t="+(+new Date());$.ajax({url:g.data.telajax+Z+"&cb=rsmst",dataType:"jsonp",success:function(ab){if(L){return}switch(ab.status){case"0":J=true;G.innerHTML="";j.style.display="block";G.innerHTML="";r.style.display="none";O(h);w.attr("data-nolog","true");w.removeClass("c-btn-primary");w.addClass("op_smstemplate_btndisble");B=false;if(w.timeT){clearInterval(w.timeT)}z=w.timeT=setTimeout(function(){J=false;R();G.innerHTML="";j.style.display="none";r.style.display="none";w.addClass("c-btn-primary");w.removeClass("op_smstemplate_btndisble");w.removeAttr("data-nolog")},60000);return;case"4":j.style.display="none";G.innerHTML="";r.style.display="block";R();O(h);o=0;return;break;case"5":N.innerHTML=f;$(c).addClass("op_smstemplate_borred");j.style.display="none";r.style.display="none";G.innerHTML="";R();return;break;default:G.innerHTML="系统繁忙(请2-3分钟后重试)";j.style.display="none";r.style.display="none";N.innerHTML="";R();O(h)}},error:function(){G.innerHTML="系统繁忙(请2-3分钟后重试)";j.style.display="none";r.style.display="none";R();O(h)},timeout:5000,jsonpCallback:"rsmst"})}});this.dispose=function(){clearTimeout(z);if(!L){L=true}k&&k.dispose&&k.dispose()}})});';   // js字串，不含<script标签
+      private static $uiList = 'input,btn';   // 包含的组件，以','分割的字符串，比如'input,text,button'这样
+      
+      public static function getHeadCss()
+      {
+         if (!is_string(self::$cssStr))
+         {
+            return '';
+         }
+         return self::$cssStr;
+      }
+      
+      public static function getFootJs()
+      {
+         if (!is_string(self::$jsStr))
+         {
+            return '';
+         }
+         return self::$jsStr;
+      }
+      
+      // 返回数组
+      public static function getCssUI()
+      {
+		 if ( empty(self::$uiList) ) return array();
+
+         $arr = @explode(',', self::$uiList);
+         if (!is_array($arr))
+         {
+            $arr = array();
+         }
+         return $arr;
+      }
+   }

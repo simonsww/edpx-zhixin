@@ -1,0 +1,1 @@
+{%extends 'c_right_base.tpl'%} {%block name='data_modifier'%}{%if !$tplData.imgurl%}{%$tplData.imgurl='http://www.baidu.com/aladdin/img/qiangpiao/qiangpiao.jpg'%}{%/if%}{%/block%}{%block name='content'%}<div class="c-abstract"> <a href="{%$tplData.imghref%}" target="_blank"><img src="{%$tplData.imgurl%}" style="max-width:248px;"  /></a></div>{%/block%}

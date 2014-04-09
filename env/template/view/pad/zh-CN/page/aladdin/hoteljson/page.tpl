@@ -1,0 +1,1 @@
+{%extends 'base.tpl'%} {%block name='content'%}{%$FE_GBVAR.wrapper_prefix%} {%$FE_GBVAR.wrapper_suffix%}{%/block%}

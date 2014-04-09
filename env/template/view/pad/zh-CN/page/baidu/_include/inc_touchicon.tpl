@@ -1,0 +1,1 @@
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://s1.bdstatic.com/r/www/cache/pad/static/touchicon/img/touch-icon-ipad_94381448.png" /><link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://s1.bdstatic.com/r/www/cache/pad/static/touchicon/img/touch-icon-ipad3_347cd001.png" />

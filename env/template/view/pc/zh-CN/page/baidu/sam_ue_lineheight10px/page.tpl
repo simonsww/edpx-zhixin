@@ -1,0 +1,1 @@
+{%extends file='baidu/page.tpl'%} {%block name="head_style_ext"%}<style >.c-abstract{line-height:22px;margin:4px 0 2px 0}</style>{%/block%}{%block name="__fis_page_header_block__"%}{%include file="widget/baidu/module_static_include/module_static_include.tpl" caching%}{%/block%}

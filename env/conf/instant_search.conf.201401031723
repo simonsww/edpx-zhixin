@@ -1,0 +1,14 @@
+[IS]
+feature:1
+syncDataTemplate:sam_async_data
+interval_time:10
+@aysnIndexName:sam_async_preload_0
+@aysnIndexName:sam_async_preload_1
+@aysnIndexName:sam_async_preload_2
+@aysnIndexName:sam_async_preload_3
+@filterUA:msie 7
+@filterUA:msie 6
+[.switchtime]
+us_overload:360
+feature_close:360
+vui_checkfail:360

@@ -1,0 +1,4 @@
+{%extends 'c_base.tpl'%} {%block name="title"%}{%/block%}{%block name='content'%} {%if $tplData.titleurl%}<font style="font-size:medium">{%$tplData.title|highlight:0%}</font>{%else%}{%fe_fn_c_title_prefix%}{%fe_fn_c_title%}{%fe_fn_c_title_suffix%}{%/if%}{%if $tplData.content1%}<div class="op_nba_num">{%$tplData.content1|highlight:0%}</div>{%/if%}<div class="op_nba_table"></div>{%if $tplData.link[0]['linkurl']%}<div class="op_nba_more"><a href="{%$tplData.link[0]['linkurl']%}" target="_blank">{%$tplData.link[0]['linkcontent']|escape:'html'%}<span style="font-family:simsun">>></span></a></div>{%/if%} <div style="font-size;13px;">{%if $tplData.provider%}<div class="op_nba_gray">{%$tplData.provider|escape:'html'%}</div>{%/if%}</div><script type="text/javascript"  >
+    A.setup({'originQuery': '{%str_replace($extData.resourceid|cat:'_','',$extData.fetchkey)|escape:"javascript"%}','srcid':'{%$extData.resourceid%}'});
+  
+</script>{%/block%}

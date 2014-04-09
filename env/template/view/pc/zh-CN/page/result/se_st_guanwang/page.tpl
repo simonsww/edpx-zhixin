@@ -1,0 +1,1 @@
+{%extends 'se_st_default/page.tpl'%} {%block name="result_title_right"%}{%if $tplData.sublink.is_main%}<a href="http://guanwang.baidu.com/vcard/officialsite/" target="_blank" class="icon-gw">官网</a>{%/if%}{%/block%}

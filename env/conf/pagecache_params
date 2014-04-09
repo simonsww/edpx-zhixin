@@ -1,0 +1,49 @@
+pagecache  on;
+pagecache_stale  on;
+ps_pagecache_temp_buf_size  1024000;
+ps_pagecache_get_limit baidu 70 10 33 99;
+ps_pagecache_get_limit wisexmlnew 70 10 50 50;
+ps_pagecache_get_limit se_tiebajson 10 3 5 5;
+ps_pagecache_get_limit 19076084_3_pg 20 5 10 10;
+
+ps_pagecache_set_limit baidu 70 5 1 3;
+ps_pagecache_set_limit wisexmlnew 70 5 1 1;
+ps_pagecache_set_limit se_tiebajson 10 2 1 1;
+ps_pagecache_set_limit 19076084_3_pg 20 2 1 1;
+
+ps_pagecache_global_limit  50;
+ps_pagecache_global_div_flow  50;
+ps_pagecache_account_enabled  baidu,wisexmlnew,se_tiebajson,19076084_3_pg;
+
+ps_pagecache_limit_key  accountname;
+ps_pagecache_dynamic_query_limit_count 75;
+ps_pagecache_asyncreq_dynamic_query_limit_count 225;
+ps_pagecache_cache_page_timeout 1m;
+ps_pagecache_cache_count_timeout 1s;
+ps_pagecache_cache_word_timeout 1s;
+ps_pagecache_cache_dynamic_query_timeout 2m;
+ps_pagecache_cache_stale_timeout 1s;
+
+ps_pagecache_zone_cache_page zone=pagecache_page:512m 50000;
+ps_pagecache_zone_cache_count zone=pagecache_count:5m 20000;
+ps_pagecache_zone_cache_word zone=pagecache_word:500k 5000;
+ps_pagecache_zone_query_dict zone=pagecache_dict:50k 500;
+
+set $psqueryword $http_ps_queryword;
+set $psoutputencode $http_ps_outputencode;
+set $psorigincodetype $http_ps_origincodetype;
+set $pssitename $http_ps_sitename;
+set $pslastmodified $http_ps_lastmodified;
+set $pscontmirror $http_ps_iscontmirror;
+set $pssitecluster $http_ps_issitecluster;
+set $psbeforeurl $http_ps_beforeurl;
+set $accountname $http_ps_oriaccountname;
+set $psplatform $http_ps_controlplatform;
+set $pspagenum $http_ps_pagenum;
+set $psresnum $http_ps_resnum;
+set $psismod $http_ps_ismod;
+set $psisasyncflag $http_ps_isasyncflag;
+
+ps_pagecache_http_variable_keys $psqueryword$psoutputencode$psorigincodetype$pssitename$pslastmodified$pscontmirror$pssitecluster$psbeforeurl$accountname$psplatform$pspagenum$psresnum$http_accept_encoding$psismod$psisasyncflag;
+ps_pagecache_hot_query_dict "/home/work/search/ui-nginx/conf/hot_query_dict";
+ps_pagecache_user_login_var $http_ps_ispassportuserlogin;

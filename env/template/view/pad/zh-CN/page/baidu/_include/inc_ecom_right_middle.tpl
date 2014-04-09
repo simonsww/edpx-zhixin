@@ -1,0 +1,1 @@
+<div style="padding-left:10px;word-break:break-all;word-wrap:break-word;">{%$adv[657].content%}</div>

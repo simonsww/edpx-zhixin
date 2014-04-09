@@ -1,0 +1,30 @@
+ps_waitlist on;
+ps_waitlist_is_feature on;
+
+set $psqueryword $http_ps_queryword;
+set $clientip $remote_addr;
+if ($http_clientip)
+{
+	set $clientip $http_clientip;
+}
+set $psoutputencode $http_ps_outputencode;
+set $psorigincodetype $http_ps_origincodetype;
+set $pssitename $http_ps_sitename;
+set $pslastmodified $http_ps_lastmodified;
+set $pscontmirror $http_ps_iscontmirror;
+set $pssitecluster $http_ps_issitecluster;
+set $psbeforeurl $http_ps_beforeurl;
+set $accountname $http_ps_oriaccountname;
+set $pspagenum $http_ps_pagenum;
+set $psresnum $http_ps_resnum;
+set $pspassportuserid $http_ps_passport_user_id;
+
+ps_waitlist_zone $psqueryword$clientip$psoutputencode$psorigincodetype$pssitename$pslastmodified$pscontmirror$pssitecluster$psbeforeurl$accountname$pspagenum$psresnum$http_accept_encoding$pspassportuserid zone=waitlist_uinginx:10m 500;
+
+ps_waitlist_temp_buf_size  1024000;
+ps_waitlist_page_timeout  6s;
+ps_waitlist_wait_timeout  2s;
+ps_waitlist_check_timeout  30ms;
+
+#ui.main.conf:MAX_WAITLIST_LEN : 40
+#ui.main.conf:MAX_WAITLIST_LIST : 40

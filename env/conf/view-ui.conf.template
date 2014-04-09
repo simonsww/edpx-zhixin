@@ -1,0 +1,129 @@
+[GLOBAL]
+
+# UI数据的编码
+UI_ENCODING: gb18030
+DEFAULT_LANGUAGE: <$ viewui_conf_default_lang $>
+
+#中文默认为zh-CN，其他类似，zh必须为小写
+DEFAULT_LANGUAGE_zh: zh-CN
+DEFAULT_TEMPLATE_TYPE: baidu
+DEFAULT_TEMPLATE_NAME: baidu
+DEFAULT_PLATFORM: pc
+ALADDIN_TEMPLATE_TYPE: aladdin
+STRUCT_TEMPLATE_TYPE: result
+ECOM_TEMPLATE_TYPE: ecom
+TEMP_SITE_PP : baiduzhannei
+TEMP_SITE_NOPP : baiduzhanneinopp
+#debugtn
+DEBUG_PAGE_TN : ""
+OPEN_DEBUG_SHOW : 0
+PRODUCT_ENC_KEY:hello_zhidao_tieba_baike_baidu
+ENC_KEY_STR:hello_xiaoshuai_baidu_zuodan_baidu
+MAX_ENC_WARNING_LEN:1500
+MAX_RANDOM_STR_LEN:3
+
+#允许输出非UTF-8编码的模版列表
+ENCODE_CTPL_TEMPLATE_NAMES : baidujson,baiduxmlnoas,wisexmlpad,wisepad,baidurs2wise,baiduse,baiduwbmsg,baiduxml,jsonforpolice,jsonnews,newsxml,nokiaweb,openalaxml,siteallservice,sitejingjia,topnewsxml,wisebaidurt,wisexmlnew,xmlwenku,xmlzhidao,zhuaqu,siteas,siteshifen,sitexml,wisexmlwenku,alazhidao,baiduxmlformof,baiduxmlppimas,wisexmlpad,wisepad,nswordsim
+
+# 渲染后页面的最小字节数
+MINI_BAIDU_PSIZE: 10
+
+# 加密LOG开关
+ENC_LOG : 0
+
+#数组转XML LOG开关
+ARR_TO_XML_LOG : 0
+
+#USE_TPL_PARAM : 0
+
+@ALADDIN_FIELD : extData
+
+
+@REQUEST_TYPE : www 
+@REQUEST_TYPE : aladdin
+@REQUEST_TYPE : detect
+
+# 知心左侧单独队列
+@RESULT : leftResult 
+
+# 左侧结果
+@RESULT : asResult 
+
+# 右侧结果
+@RESULT : rightResult
+
+# 上侧结果
+@RESULT : topResult
+
+[KEY]
+SIGN_PAGE : frontendmgw@baidu.com!!@#$%^&*(--
+
+[LOG]
+
+# 日志级别
+#  1：打印FATAL
+#  2：打印FATAL和WARNING
+#  4：打印FATAL、WARNING、NOTICE（正常运行时的配置）
+#  8：打印FATAL、WARNING、NOTICE、TRACE（程序异常时使用这个配置）
+# 16：打印FATAL、WARNING、NOTICE、TRACE、DEBUG（测试环境配置） 
+intLevel: 4
+strLogName: view-ui.log
+
+[DISPLAY]
+
+BOLD_PREFIX: <b>
+BOLD_SUFFIX: </b>
+
+[STRATEGY]
+#example 
+USE_STRATEGY : 2,3,4,6
+[STRATEGY1]
+STRATEGY_NAME : zhixin_pk_singlevideo
+STRATEGY_FUNCTION : strategy_function_1
+@TEMPLATE_INTERFERE : newvideo1->se_st_single_video_zhanzhang->se_st_default 
+@TEMPLATE_INTERFERE : newvideo1->se_st_image_single_video->se_st_single_video 
+@TEMPLATE_INTERFERE : newvideotvplay->se_st_single_video_zhanzhang->se_st_default 
+@TEMPLATE_INTERFERE : newvideotvplay->se_st_image_single_video->se_st_single_video
+@TEMPLATE_INTERFERE : zhixincartoon->se_st_single_video_zhanzhang->se_st_default
+@TEMPLATE_INTERFERE : zhixincartoon->se_st_image_single_video->se_st_single_video
+
+#以后这种配置作为标配，策略需要自己对需要的参数进行解析，架构做通用的
+[STRATEGY2]
+STRATEGY_NAME : real_replace_zhixin_new
+STRATEGY_FUNCTION : strategy_function_2
+@STRATEGY_CONF : 16873
+@STRATEGY_CONF : 19
+
+[STRATEGY3]
+STRATEGY_NAME : real_replace_zhixin_old
+STRATEGY_FUNCTION : strategy_function_3
+@STRATEGY_CONF : 15225
+@STRATEGY_CONF : 19
+
+[STRATEGY4]
+STRATEGY_NAME : real_replace_zhixin_old
+STRATEGY_FUNCTION : strategy_function_3
+@STRATEGY_CONF : 15226
+@STRATEGY_CONF : 19
+
+[STRATEGY5]
+STRATEGY_NAME : filterResultByTemplate
+STRATEGY_FUNCTION : strategy_function_5
+@TEMPLATE : autoiframe
+
+[STRATEGY6]
+STRATEGY_NAME : remove_duplicate_hints
+STRATEGY_FUNCTION : strategy_function_6
+
+#diff测试时打印tpl的数据
+[TplLOG]
+log_file : tpl.log
+#线上应该保持此值为0
+log_switch : 0
+
+#展现日志
+[URLLOG]
+log_file : url.log
+auto_rotate : 0
+PB_PAGESIZE : 10
+MAX_PB_PAGESIZE : 110

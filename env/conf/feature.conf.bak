@@ -1,0 +1,58 @@
+[FEATURE_LIST]
+[.SignPage]
+#对页面加签名
+TURN : OFF
+
+[.TemplateSelector]
+#页面级模板选择
+TURN : ON
+
+[.TemplateSampling]
+#抽样模板选择
+TURN : ON
+
+
+[.TemplateBdHdUaAdaptation]
+#百度HD版本适配
+TURN : ON
+
+[.NginxMainPage]
+#Nginx主页适配
+TURN : ON
+
+[.HeadCssFootJs]
+#CSS头部合并&js尾部合并
+TURN : ON
+
+[.HILIGHT_NEW]
+TURN : OFF
+
+[.AUTOLOADER]
+TURN : OFF
+
+[.ADLEVEL]
+TURN : ON
+
+[.PREDATA]
+TURN : ON
+
+[.MULTI_RENDER]
+TURN : ON
+
+[.PBURL]
+TURN : ON
+
+[.TN_UN]
+TURN : ON
+
+[.SPLITTPL]
+TURN : ON
+
+[.CHUNKED]
+TURN : ON
+
+[.HHVM_BRANCH]
+TURN : ON
+
+[.FLUSH]
+TURN: ON

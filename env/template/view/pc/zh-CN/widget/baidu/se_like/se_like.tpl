@@ -1,0 +1,1 @@
+{%fis_widget%}{%if $showLike == 1%}<span data-nolog class="liketip" id="like_{%$res.urlSign%}"></span>{%/if%}{%/fis_widget%}

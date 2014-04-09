@@ -1,0 +1,1 @@
+{%extends file='baidu/index.tpl'%} {%block name="home_script_js"%}<script type="text/javascript" src="http://s1.bdstatic.com/r/www/cache/static/global/js/home-sam-framecheck_27de9cc7.js" charset="utf-8"></script>{%/block%}

@@ -1,0 +1,1 @@
+{%extends file='baidu/page.tpl'%} {%block name="tools_ext"%}<a onmousedown="return ns_c({'fm':'behs','tab':'browser'})" no_ulink="1" href="http://dl.client.baidu.com/union/getbdwebinstaller.php?tn=sou02" style="margin-left: 15px;">百度浏览器开网页快2秒</a>{%/block%}

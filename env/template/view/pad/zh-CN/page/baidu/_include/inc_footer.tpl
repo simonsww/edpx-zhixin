@@ -1,0 +1,1 @@
+<p id="bds-cp">&copy;{%$lable_foot_year%}&nbsp;Baidu&nbsp;<span>{%$lable_foot_word%}</span></p>

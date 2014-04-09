@@ -1,0 +1,15 @@
+struct log_t{
+        int32_t intLevel = range(1, 16);
+        string strLogName;
+};
+struct display_t{
+        string BOLD_PREFIX;
+        string BOLD_SUFFIX;
+};
+
+string UI_ENCODING = enum("gbk", "gb18030");
+string DEFAULT_LANGUAGE = enum("zh-CN", "en-US");
+string DEFAULT_TEMPLATE_TYPE = enum("baidu");
+string DEFAULT_TEMPLATE_NAME = enum("baidu");
+string ALADDIN_TEMPLATE_TYPE = enum("aladdin");
+log_t LOG;

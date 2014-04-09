@@ -1,0 +1,7 @@
+[TEMPLATE_FILTER]
+#需要过滤的结果队列
+result : <$ tpl_filter_template_filter_result $>
+#需要过滤的模板名字，多个逗号分隔
+#template_name : right_hotelbrand,right_hotellist
+#删除结果条数控制，最多不能超过count个
+#count : 5

@@ -1,0 +1,1 @@
+{%extends file='baidu/content.tpl'%} {%block name="debug_footer"%}<div id="debug_footer" style="display:none"></div>{%/block%}{%block name="debug_result_top"%}<div id="debug_result_top" style="display:none"></div>{%/block%}{%block name="debug_result_bottom"%}<div id="debug_result_bottom" style="display:none"></div>{%/block%}{%block name="debug_result"%}{%/block%}

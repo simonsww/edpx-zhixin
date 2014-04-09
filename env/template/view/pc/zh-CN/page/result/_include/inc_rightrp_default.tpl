@@ -1,0 +1,1 @@
+{%if $hasRightRp==1%} <div style="display:none;padding:3px 0 0 0" class="extquery" data-extquery="{%$tplData.extQuery|vui_escape:'html'%}"> <a href="http://www.baidu.com/s?wd={%$tplData.extQuery|vui_escape:'url'%}" target="_blank" style="font-size:13px;font-weight:bold;">点击查看更多“<em>{%$tplData.extQuery|vui_escape:'html'%}</em>”的结果 >></a> </div>{%/if%}

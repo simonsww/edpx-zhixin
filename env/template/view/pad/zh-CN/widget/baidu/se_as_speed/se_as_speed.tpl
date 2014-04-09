@@ -1,0 +1,1 @@
+{%function name="fis_widget_baidu_se_as_speed"%}{%/function%}

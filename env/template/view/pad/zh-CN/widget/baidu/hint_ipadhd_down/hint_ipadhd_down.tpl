@@ -1,0 +1,1 @@
+{%fis_widget%}{%$hData = $hint.hintData%}{%$hText = $hData.hintText%}{%if $hText%}<div class="bds-hint-top f18"><p class="hint-ipadhd-down"><strong>{%$hText%}</strong></p><script>$(".hint-ipadhd-down a").each(function(index,item){$(item).on("mousedown",function(){ns_c({'fm':'ipadhd_down','tab':'ipadhd'});return true;});});</script></div>{%/if%}{%/fis_widget%}

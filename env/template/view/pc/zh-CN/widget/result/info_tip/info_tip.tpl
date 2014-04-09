@@ -1,0 +1,1 @@
+{%fis_widget%}{%foreach $tplData.addSubArr as $subArr%}{%if $subArr.typeID == '10004' && $resIndex == 1%}<script>bds.se.addToHome = true;</script>{%/if%}{%/foreach%}{%/fis_widget%}

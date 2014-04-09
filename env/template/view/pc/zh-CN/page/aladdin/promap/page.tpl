@@ -1,0 +1,11 @@
+{%extends 'base.tpl'%} {%block name='content'%}{%$FE_GBVAR.wrapper_prefix%}<style >
+	.op_map_citys{
+			list-style-image:none;
+			list-style-position:outside;
+			list-style-type:none;
+			margin:0;
+			padding:0;
+			font-size:13px;
+	}
+	.op_map_citys li{float:left;}
+</style><table cellpadding="0" cellspacing="0"><tr><td><div style="width:220px;height:165px;vertical-align:center;overflow:hidden;border:solid 1px #7493e5;"><a href="{%$tplData.pic[0]['jumplink']%}" target="_blank" ><img style="border:0" src="{%$tplData.pic[0]['piclink']%}"></a></div></td><td style="vertical-align:top;"><div style="margin-left:10px;width:280px;">{%fe_fn_title_prefix%}{%fe_fn_title title="{%$tplData.title%}" url="{%$tplData.url%}"%}{%fe_fn_title_suffix title="{%$tplData.title%}" url="{%$tplData.url%}"%}<div style="font-size:13px;">{%$tplData.content1|highlight:0%}</div><div class="op_map_hiddens" style="display:none;">{%$loop_maxcount=count($tplData.link)%}{%for $op_loop_count=0 to 25%}{%if $op_loop_count<$loop_maxcount%} <a href="{%$tplData.link[$op_loop_count]['linkurl']%}" target="_blank" >{%$tplData.link[$op_loop_count]['linkcontent']%}</a>{%else%}{%break%}{%/if%}{%/for%}</div><ul class="op_map_citys"></ul><br><div style="clear:both;"><font color="#008000">{%$tplData.showurl%}</font></td></div></div></td></tr></table><script>A.init(function(){var T = A.baidu, _this = this;function _aMC(o) {var t = o, i = -1;while (t = t.parentNode) {i = parseInt(t.getAttribute('id'));if (i > 0) return i;}}function op_map_draw(){var hiddens = _this.qq('op_map_hiddens');var provcity = hiddens.getElementsByTagName('a');var str = '';for (var i = 0; i < provcity.length; i++) {var name = provcity[i].innerHTML;var l = Math.ceil(strB(name) / 10) * 62;str += '<li style="width:' + l + 'px\"><a{%*i*%} target=\"_blank\" href=\"';str += provcity[i].href + '\">' + name + '</a></li>';}_this.qq('op_map_citys').innerHTML = str;}function strB(str) {return str.replace(/\*/g, '').replace(/[^\x00-\xff]/g, '**').length;}op_map_draw();});</script>{%$FE_GBVAR.wrapper_suffix%}{%/block%}

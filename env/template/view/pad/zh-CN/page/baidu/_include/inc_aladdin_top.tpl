@@ -1,0 +1,1 @@
+<script data-com="strip">window.A=bds.aladdin={};A.ids=[];A.has = true;function _aMC(o){var t = o,i = -1;while(t=t.parentNode){i=parseInt(t.getAttribute('id'));if(i>0) return i;}}</script><script src="http://s1.bdstatic.com/r/www/cache/pad/static/global/js/common_145ec696.js"></script>

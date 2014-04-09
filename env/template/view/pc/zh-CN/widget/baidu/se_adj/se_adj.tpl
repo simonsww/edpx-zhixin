@@ -1,0 +1,8 @@
+{%fis_widget%}<table cellpadding="0" cellspacing="0" class="result{%if $isSameSize==1%} c-res{%/if%}" id="{%$resIndex%}"><tr><td class=f><h3 class="t"><a href="{%enc_url url=$res.offsetInfo.urlEncoded%}" 
+        
+		{%if !($urllPara.ct & 0x40000)%} target="_blank" {%/if%}
+    >{%$res.offsetInfo.title|limitlen:63|highlight:4%}</a>{%fis_widget_inline%}{%if $isUserLogin == 1 && $isFavoOn == 1%}{%if $res.favoFlag == 1%}<span class="tsuf"><span class="fav fav_add" data-fav="1" data-id="{%$res.favoItemId%}" title="点击取消收藏" onmousedown="return c({'fm':'bfav','url':this.getAttribute('data-url'),'title':this.getAttribute('data-title'),'p1':bds.se.favo.favPos(this),'p2':0,'p3':1,tab:this.getAttribute('data-fav')});"></span></span>{%else%}<span class="tsuf"><span class="fav fav_nor" data-fav="0" data-id="0" title="点击收藏" onmousedown="return c({'fm':'bfav','url':this.getAttribute('data-url'),'title':this.getAttribute('data-title'),'p1':bds.se.favo.favPos(this),'p2':0,'p3':1,tab:this.getAttribute('data-fav')});"></span></span>{%/if%}{%/if%}{%/fis_widget_inline%}</h3><font size=-1>{%$res.offsetInfo.summary|highlight:5%}{%if strlen($res.offsetInfo.summary) > 0%}<br>{%/if%}<span class="g">{%$res.offsetInfo.urlDisplay|url_limit:45:true%}{%(strlen($res.timeShow)>0)?$res.timeShow:$res.offsetInfo.lastModified%}</span>{%if strlen($res.snapshootKey) > 0%}-<a data-nolog href="{%$cache_domain%}/c?{%$res.snapshootKey%}&user=baidu&fm=sc&query={%$query|vui_escape:'url'%}&qid={%$queryId%}&p1={%$resIndex%}" 
+				{%if !($urlPara.ct & 0x40000)%}
+					target="_blank" 
+	            {%/if%} 
+	            class="m">{%$lable_cache%}</a>{%/if%}<br></font></td></tr></table>{%/fis_widget%}

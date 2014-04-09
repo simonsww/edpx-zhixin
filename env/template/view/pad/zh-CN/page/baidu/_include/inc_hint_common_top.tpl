@@ -1,0 +1,1 @@
+{%if $pageNo == 1%}{%foreach $hintData.hints.MostHigh as $hint%}<li class="bds-list">{%display_hint widgetName=$hint.templateName%}</li>{%/foreach%}{%if strlen(substr($adv[119].content,29))<=0%}{%*当出现品牌专区时不显示通用提示*%}{%foreach $hintData.hints.BoxBottom as $hint%}<li class="bds-list">{%display_hint widgetName=$hint.templateName%}</li>{%/foreach%}{%/if%}{%/if%}

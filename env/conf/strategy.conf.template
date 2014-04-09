@@ -1,0 +1,121 @@
+[STRATEGY_ENGINE]
+[.@STRATEGY]
+#Tips位策略
+STRATEGY_CLASS : BitZone
+TURN : <$ strategy_conf_strategy_engine_bitzone_turn $>
+
+[.@STRATEGY]
+#自然结果结构化摘要避让阿拉丁策略
+STRATEGY_CLASS : AsStructSummaryFilter 
+#默认为off
+TURN : <$ strategy_conf_strategy_engine_as_structsummary_filter_turn $>
+
+[.@STRATEGY]
+#数据打平，即将AS的数据格式打平为SP
+STRATEGY_CLASS : ItemNormalization
+#默认为off
+TURN : <$ strategy_conf_strategy_engine_itemnormalization_turn $>
+[..CONF]
+#以","分割资源号
+SRC_ID : 4,19,34,23,6501
+RESULT : asResult,topResult,leftResult,rightResult
+
+[.@STRATEGY]
+#将DISP选取的模板转换stdstg_new 注意要在选择模板前处理
+STRATEGY_CLASS : DispTempName2StdStg
+TURN : <$ strategy_conf_strategy_engine_disptempname2stdstg_turn $>
+
+[.@STRATEGY]
+#根据view-ui/tpl.conf中的配置去选择模板
+STRATEGY_CLASS : ItemTplSelector
+TURN : <$ strategy_conf_strategy_engine_itemtplselector_turn $>
+
+#[.@STRATEGY]
+#根据view-ui/advertise.conf中的配置去做展现pk
+#STRATEGY_CLASS : DispArchitecture
+#TURN : on
+
+[.@STRATEGY]
+#根据view-ui/url_filter.conf中的配置去做url去重
+STRATEGY_CLASS : UrlFilter
+TURN : <$ strategy_conf_strategy_engine_urlfilter_turn $>
+
+[.@STRATEGY]
+#根据view-ui/tpl_filter.conf中的配置过滤模板，删除单条结果
+STRATEGY_CLASS : TemplateFilter
+TURN : <$ strategy_conf_strategy_engine_tpl_filter_turn $>
+
+[.@STRATEGY]
+#根据view-ui/requery.conf中的配置针对返回码做不同的重查处理策略
+STRATEGY_CLASS : RequeryStrategy
+TURN : <$ strategy_conf_strategy_engine_requerystrategy_turn $>
+
+[.@STRATEGY]
+#根据tpl_rewrite.conf中的配置修改对应的模板
+STRATEGY_CLASS : ItemTplRewrite
+TURN : <$ strategy_conf_strategy_engine_itemtplrewrite_turn $>
+
+[.@STRATEGY]
+#右侧提示策略
+STRATEGY_CLASS : RightPromptStrategy
+TURN : <$ strategy_conf_strategy_engine_rightpromptstrategy_turn $>
+
+[.@STRATEGY]
+#是否出保障计划提示框
+STRATEGY_CLASS : AdSecurityPlanTip
+TURN : <$ strategy_conf_strategy_engine_adsecurityplantip_turn $>
+
+[.@STRATEGY]
+#是否出保障计划提示框
+STRATEGY_CLASS : NewAdSecurityPlanTip
+TURN : <$ strategy_conf_strategy_engine_newadsecurityplantip_turn $>
+
+[.@STRATEGY]
+#General出图策略
+STRATEGY_CLASS : DispGraphFilter
+TURN : <$ strategy_conf_strategy_engine_dispgraphfilter_turn $>
+
+[.@STRATEGY]
+#点击校验参数计算
+STRATEGY_CLASS : ClkEncryption
+TURN : <$ strategy_conf_strategy_engine_clkencryption_turn $>
+
+[.@STRATEGY]
+#6714数据适配
+STRATEGY_CLASS : SpoAdapter
+TURN : <$ strategy_conf_strategy_engine_spoadapter_turn $>
+
+[.@STRATEGY]
+#根据view-ui/uri_hide.conf中的配置去做url去重
+STRATEGY_CLASS : ItemHideStrategy
+TURN : <$ strategy_conf_strategy_engine_itemhidestrategy_turn $>
+
+[.@STRATEGY]
+#品专与汽车知心共线
+STRATEGY_CLASS : TplStyleSelect
+TURN : <$ strategy_conf_strategy_engine_tplstyleselect_turn $>
+
+[.@STRATEGY]
+#高危知心Query修理
+STRATEGY_CLASS : ItemFoldSelect
+TURN : <$ strategy_conf_strategy_engine_itemfoldselect_turn $>
+
+[.@STRATEGY]
+#渲染数据处理逻辑
+STRATEGY_CLASS : ItemDataProcessor
+TURN : <$ strategy_conf_strategy_engine_itemdataprocessor_turn $>
+
+[.@STRATEGY]
+#图片base64处理策略
+STRATEGY_CLASS : ImageBase64
+TURN : <$ strategy_conf_strategy_engine_imagebase64_turn $>
+
+[.@STRATEGY]
+#顶部通用提示处理策略
+STRATEGY_CLASS : TopPromptStrategy
+TURN : <$ strategy_conf_strategy_engine_toppromptstrategy_turn $>
+
+[.@STRATEGY]
+#模板数据映射策略
+STRATEGY_CLASS : MappingData
+TURN : <$ strategy_conf_strategy_engine_mappingdata_turn $>

@@ -1,0 +1,1 @@
+{%extends file='baidu/index.tpl'%}  

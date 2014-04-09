@@ -1,0 +1,1 @@
+<div class="c-tips-container" id="c-tips-container" style="-webkit-tap-highlight-color:transparent;"></div>

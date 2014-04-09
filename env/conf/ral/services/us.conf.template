@@ -1,0 +1,38 @@
+[CamelConfig]
+[.ServiceConfig]
+# 独立的服务配置文件,Galileo和Local服务配置的说明见ral.conf,不需要GalileBase部分
+# 注意：Name为key,ral配置的全局范围内不能重复,新增服务名称上线时,检查ral-worker.conf，确保命名不会和已存在的服务名冲突!!!
+# 本地服务配置段,参考ral.conf Local
+[..Local]
+[...@Service]
+Name  :  us
+DefaultPort : 3000
+DefaultRetry : 0
+DefaultConnectType  :  0
+DefaultConnectTimeOut : 200
+DefaultReadTimeOut  :  6000
+DefaultWriteTimeOut  :  100
+[....@Server]
+
+<$ SET us_ip_port_arr = us_conf_server.as_array("\n") -$>
+<$ FOREACH i IN us_ip_port_arr -$>
+IP : <$ i $>
+<$ END -$>
+
+[....SuperStrategy]
+Balance : Random
+ConnectQueueSize : 100
+ConnectX1 : 10
+ConnectY1 : 95
+ConnectX2 : 40
+ConnectY2 : 5
+HealthyQueueSize : 100
+HealthyTimeout   : 100
+HealthyCheckTime : 3 
+HealthyMinRate   : 0.1
+HealthyBackupThreshold  : 3
+CrossRoom : Off
+[....Protocol]
+Name : nshead
+[....Converter]
+Name : mcpack2

@@ -1,0 +1,1 @@
+{%extends file='baidu/page.tpl'%} {%block name="head_style_ext"%}<style>a.sam-icon-v{background:url(http://s1.bdstatic.com/r/www/cache/static/certification/img/sam_hinticon_ecom_v_5928f1d0.png) no-repeat -1px -1px}</style>{%/block%}

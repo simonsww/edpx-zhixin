@@ -1,0 +1,64 @@
+[FEATURE_LIST]
+[.SignPage]
+#对页面加签名
+TURN : <$ feature_conf_signpage_turn $>
+
+[.TemplateSelector]
+#页面级模板选择
+TURN : <$ feature_conf_templateselector_turn $>
+
+[.TemplateSampling]
+#抽样模板选择
+TURN : <$ feature_conf_templatesampling_turn $>
+
+
+[.TemplateBdHdUaAdaptation]
+#百度HD版本适配
+TURN : <$ feature_conf_templatebdhduaadaptation_turn $>
+
+[.NginxMainPage]
+#Nginx主页适配
+TURN : <$ feature_conf_nginxmainpage_turn $>
+
+[.HeadCssFootJs]
+#CSS头部合并&js尾部合并
+TURN : <$ feature_conf_headcssfootjs_turn $>
+
+[.HILIGHT_NEW]
+TURN : <$ feature_conf_hilight_new $>
+
+[.AUTOLOADER]
+TURN : <$ feature_conf_autoloader $>
+
+[.ADLEVEL]
+TURN : <$ feature_conf_adlevel $>
+
+[.PREDATA]
+TURN : <$ feature_conf_predata $>
+
+[.MULTI_RENDER]
+TURN : <$ feature_conf_multi_render $>
+
+[.PBURL]
+TURN : <$ feature_conf_pburl $>
+
+[.TN_UN]
+TURN : <$ feature_conf_tnun $>
+
+[.SPLITTPL]
+TURN : <$ feature_conf_split_tpl $>
+
+[.CHUNKED]
+TURN : <$ feature_conf_chunked $>
+
+[.HHVM_BRANCH]
+TURN : <$ feature_conf_hhvm_branch $>
+
+[.FLUSH]
+TURN: <$ feature_conf_flush $>
+
+[.COOK]
+TURN: <$ feature_conf_cook $>
+
+[.CHUNKED_SAMPLE]
+TURN: <$ feature_conf_chunked_sample $>

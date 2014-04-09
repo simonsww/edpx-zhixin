@@ -1,0 +1,1 @@
+{%extends file='baidu/nocontent.tpl'%} {%block name="ecom_right_hao"%}{%if strlen($adv[1].content) <= 0 && strlen($adv[120].content) <= 0%}<div><a target="_blank" href="http://www.hao123.com/?src=bdtn"><img border=0 src="http://www.hao123.com/images/175_150.gif"></a></div><br>{%/if%}{%/block%}{%block name="global_content_vars_ext"%}{%$ubs_url = '/union.gif'%}{%/block%}

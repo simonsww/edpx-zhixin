@@ -1,0 +1,1 @@
+{%extends file='baidu/none.tpl'%} {%block name="head_style_ext"%}<style >body{color:#000}#head{padding-left:20px}#container{padding-left:20px}</style>{%/block%}

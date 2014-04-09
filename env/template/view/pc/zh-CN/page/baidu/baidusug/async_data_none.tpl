@@ -1,0 +1,1 @@
+{%extends file='baidu/async_data_none.tpl'%} {%block name="global_content_vars_ext"%}{%$sugHost = "http://cmpsug.baidu.com/su"%}{%/block%}
