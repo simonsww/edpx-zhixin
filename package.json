@@ -11,7 +11,8 @@
     "edp-config": "~1.0.0",
     "edp-webserver": "~1.0.1",
     "async": "~0.7.0",
-    "shelljs": "~0.2.6"
+    "shelljs": "~0.2.6",
+    "wrench": "1.5.8"
   },
   "repository": {
     "type": "git",
