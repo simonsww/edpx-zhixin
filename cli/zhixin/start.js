@@ -5,9 +5,9 @@
 ***************************************************************************/
 
 /**
- * @file bcs.js ~ 2014-03-21 11:40
- * @author sekiyika (px.pengxing@gmail.com)
- * @description
+ * @file /cli/zhixin/start.js ~ 2014-04-10 01:20
+ * @author Johnson (zoumiaojiang@gmail.com)
+ * @description edp zhixin start 模块
  * 
  */
 
@@ -19,17 +19,29 @@
  */
 var cli = {};
 
+
 /**
+ * 命令行参数配置信息
  * @const
  * @type {Array.<string>}
  */
 cli.options = ['port', 'config', 'root'];
 
+
 /**
+ * 命令行的描述信息
  * @const
  * @type {string}
  */
-cli.description = '';
+cli.description = '启动server，初始化开发环境';
+
+
+/**
+ * 命令行的使用方法
+ * @const
+ * @type {string}
+ */
+cli.usage = 'edp zhixin start [--port|-p] [--config|-c] [--root|-r]';
 
 
 /**
@@ -39,7 +51,10 @@ cli.description = '';
  * @param {Object} opts 命令运行选项
  */
 cli.main = function (args, opts) {
-    require( '../index' ).start(args, opts);
+    console.log('args:', args);
+    console.log('opts:', opts);
+
+    require('../../index').start(args, opts);
 };
 
 /**
@@ -48,5 +63,3 @@ cli.main = function (args, opts) {
  * @type {Object}
  */
 exports.cli = cli;
-
-

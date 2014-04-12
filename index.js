@@ -19,4 +19,4 @@ exports.start = function() {
     sdk.start();
 };
 
-exports.start();
+//exports.start();
