@@ -1,1 +1,0 @@
-{%extends file='baidu/index.tpl'%} {%block name="all_async_js"%}<script type="text/javascript" src="http://s1.bdstatic.com/r/www/cache/static/global/js/all_async_preload_input_db400831.js"></script>{%/block%}

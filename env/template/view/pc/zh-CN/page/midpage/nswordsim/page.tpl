@@ -1,1 +1,0 @@
-{%extends file='zhuaqu/page.tpl'%} 

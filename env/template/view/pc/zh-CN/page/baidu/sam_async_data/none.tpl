@@ -1,1 +1,0 @@
-{%extends file='baidu_async/none.tpl'%} 

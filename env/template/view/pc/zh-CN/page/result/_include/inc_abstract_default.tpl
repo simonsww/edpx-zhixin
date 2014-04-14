@@ -1,1 +1,0 @@
-<font size=-1>{%if $tplData.TimeFactor && strlen($tplData.TimeFactor) > 0%}<font style="color:#666666">{%$tplData.TimeFactor%}</font>{%/if%}{%$tplData.classicInfo.abstract|highlight:6%}</font>{%if strlen($tplData.classicInfo.abstract) > 0%}<br>{%/if%}

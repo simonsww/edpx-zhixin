@@ -1,1 +1,0 @@
-{%extends 'right_base.tpl'%} {%block name='content'%}<style>.opr-divine10{height:145px;background:url('http://www.baidu.com/aladdin/img/swf/shenzhou10.jpg') no-repeat;display:block}</style><a class="opr-divine10" href="{%$tplData.baikeurl%}" target="_blank"></a>{%/block%}

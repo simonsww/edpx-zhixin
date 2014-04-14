@@ -1,1 +1,0 @@
-{%extends file='baidu/index_sync.tpl'%} {%block name="global_vars" append%}{%$sugHost = "http://cmpsug.baidu.com/su"%}{%/block%}

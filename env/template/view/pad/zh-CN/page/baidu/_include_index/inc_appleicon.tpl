@@ -1,1 +1,0 @@
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{%$STATIC_DOMAIN_WWW0%}{%$IMG_WWW_ICON%}"><link rel="apple-touch-icon-precomposed" sizes="144x144" href="{%$STATIC_DOMAIN_WWW0%}{%$IMG_WWW_ICON_IPAD3%}">

@@ -1,1 +1,0 @@
-{%extends 'se_com_default/page.tpl'%} {%block name="result_vars_ext"%}{%$COMM_GRID_PARAM = 3%}{%$COMM_IMG_HEIGHT = "52px"%}{%/block%}

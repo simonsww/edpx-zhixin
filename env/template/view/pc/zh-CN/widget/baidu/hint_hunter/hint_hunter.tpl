@@ -1,1 +1,0 @@
-{%fis_widget%}{%if in_array($hint.hintData.sid,explode("_",$urlPara.sid))%}<script>bds.se.hunter = bds.se.hunter || {'params':[['_setParam','psid','{%$hint.hintData.sid%}'],['_setParam','kw',bds.comm.query]]};</script><script type="text/javascript" src="http://img.baidu.com/hunter/aladin.min.js"></script>{%/if%}{%/fis_widget%}

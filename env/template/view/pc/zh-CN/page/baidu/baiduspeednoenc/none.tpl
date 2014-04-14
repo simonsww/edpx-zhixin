@@ -1,1 +1,0 @@
-{%extends file='baidu/none.tpl'%} {%block name="global_vars_ext"%}{%$JS_WWW_COMMON = '/cache/global/js/common-3.0.1.js' scope='global'%} {%$JS_WWW_LOGIC = '/cache/global/js/logic-3.0.js' scope='global'%}{%/block%}

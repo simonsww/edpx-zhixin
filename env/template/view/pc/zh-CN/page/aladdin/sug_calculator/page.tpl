@@ -1,1 +1,0 @@
-type:"al_text", text:"{%if $tplData.StandardExpr!=""%}{%$tplData.StandardExpr|escape:'javascript'%}{%/if%}&nbsp;=&nbsp;{%if $tplData.ExpResultBase!=""%}{%$tplData.ExpResultBase|escape:'javascript'%}{%/if%}{%if $tplData.ExpResultPower!=""%}&nbsp;*&nbsp;10<sup>{%$tplData.ExpResultPower|escape:'javascript'%}</sup>{%/if%}"

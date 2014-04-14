@@ -1,1 +1,0 @@
-{%function name="fis_widget_result_module_static"%}{%/function%}

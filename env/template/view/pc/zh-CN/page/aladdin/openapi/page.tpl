@@ -1,1 +1,0 @@
-{%extends 'base.tpl'%} {%block name='content'%} <tr><td class="f"> </td></tr> {%/block%}

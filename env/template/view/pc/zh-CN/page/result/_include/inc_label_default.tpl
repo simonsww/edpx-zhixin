@@ -1,1 +1,0 @@
-<font size=-1>{%widget name="fis_widget_result_label_icp" path="widget/result/label_icp/label_icp.tpl"%}</font>

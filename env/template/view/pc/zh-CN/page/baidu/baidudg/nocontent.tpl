@@ -1,1 +1,0 @@
-{%extends file='baidu/nocontent.tpl'%} {%block name="global_content_vars_ext"%}{%$ubs_url = '/union.gif'%}{%/block%}

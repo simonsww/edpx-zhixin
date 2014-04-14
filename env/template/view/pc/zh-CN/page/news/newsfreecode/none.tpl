@@ -1,1 +1,0 @@
-{%if $tplData.queryInfo.pUrlConfig.tn == 'newsfc'%}c="";{%else%}document.write("");{%/if%}

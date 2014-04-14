@@ -1,6 +1,0 @@
-{%*
- * @fileOverview URL不安全提示模版
- * @author  郭勇
- * @version 1.0.1
- * @date 2013-03-05,2013-04-26
- *%}{%fis_widget%}{%if $resHitUnSafe === 0%}{%$safestr = ""%}{%foreach $resHint.hintData.hintItem as $subArr%}{%$safestr = "`$subArr`|`$safestr`"%}{%/foreach%}{%if $safestr%}{%$bdFlag = stripos($safestr,"bd")%}{%$scFlag = stripos($safestr,"sc")%}{%$qqFlag = stripos($safestr,"qq")%}{%$jsFlag = stripos($safestr,"js")%}{%$hintTitle = $resHint.hintData.hintText|escape:'url'%}{%$hintinfo = $resHint.hintData.hintInfo|escape:'url'%}<div class="unsafe_content f13"><a href="{%rs_enc_url url="http://lanjie.anquan.org/intercept/intercept.html?`$tplData.classicInfo.url|escape:'url'|cat:"&d="|cat:$safestr|cat:"&t="|cat:$hintTitle|cat:"&i="|cat:$hintinfo`"%}" target="_blank" id="unsafe_{%$resIndex%}" data-safe="{%json_encode($resHint.hintData)|escape%}" data-id="{%$resHint.id|escape%}" data-tpl="{%$resHint.templateName|escape%}" class="unsafe_ico_new">{%if $qqFlag !==FALSE %}腾讯电脑管家提醒您：{%elseif $jsFlag !==FALSE && $bdFlag ===FALSE && $scFlag ===FALSE && $qqFlag === FALSE%}金山云安全提醒您：{%else%}安全联盟提醒您：{%/if%}{%$resHint.hintData.hintText|escape%}</a></div>{%/if%}{%/if%}{%/fis_widget%}

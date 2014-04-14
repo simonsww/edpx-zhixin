@@ -1,1 +1,0 @@
-{%extends file='baidu/index_sync.tpl'%} 

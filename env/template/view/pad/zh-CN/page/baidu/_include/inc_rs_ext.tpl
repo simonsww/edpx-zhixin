@@ -1,1 +1,0 @@
-<style>#bds-rs .rs-ext-dcwj{margin:-20px 0 30px 22px}#bds-rs .rs-ext-dcwj a{text-decoration:underline}</style><div class="rs-ext-dcwj f18"><a href="http://research.baidu.com/index.php?sid=59771&lang=zh-Hans" target="_black">iPad用户有奖问卷调研&gt;&gt;</a></div>
