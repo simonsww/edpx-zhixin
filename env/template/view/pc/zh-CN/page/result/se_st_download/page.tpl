@@ -1,1 +1,0 @@
-{%extends 'se_st_default/page.tpl'%}  

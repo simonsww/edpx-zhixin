@@ -1,1 +1,0 @@
-{%extends file='baidu/content.tpl'%} 

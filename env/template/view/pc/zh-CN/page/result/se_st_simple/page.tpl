@@ -1,1 +1,0 @@
-{%extends 'se_st_default/page.tpl'%} {%block name="result_abstract"%}{%/block%}{%block name="result_attach"%}{%/block%}{%block name="__fis_page_header_block__"%}{%include file="widget/result/module_static_include/module_static_include.tpl" caching%}{%/block%}

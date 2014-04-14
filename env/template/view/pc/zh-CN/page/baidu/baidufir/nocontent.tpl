@@ -1,1 +1,0 @@
-{%extends file='baidu/none.tpl'%} {%*由于header为空，所以nocontent不能继承baidu/nocontent.tpl，而应继承拥有完整页面结构的baidu/none.tpl*%}

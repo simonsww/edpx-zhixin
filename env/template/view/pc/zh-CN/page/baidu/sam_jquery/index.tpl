@@ -1,1 +1,0 @@
-{%extends file='baidu/index.tpl'%} {%block name="home_script_js"%}<script type="text/javascript" src="http://s1.bdstatic.com/r/www/cache/static/global/js/home_prejq_21d5818f.js" charset="utf-8"></script>{%/block%}

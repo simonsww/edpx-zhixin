@@ -1,1 +1,0 @@
-{%extends file='baidu/async_data.tpl'%} {%block name="other_fields"%}<div id="__isDebugInfo">{%$tplData.queryInfo.isDebugInfo|escape%}</div><div id="__real_wd">{%$query|escape%}</div><div id="__querySign">{%$tplData.queryInfo.querySign|escape%}</div>{%/block%}

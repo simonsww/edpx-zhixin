@@ -1,1 +1,0 @@
-{%extends 'c_right_base.tpl'%} {%block name='content'%}{%$escaped_time=ceil(($tplData.timestamp-time())/(24*3600))%}{%if $escaped_time >0%} <div class="opr_countdown_box">{%$tplData.tiptxt[0].txt1|escape%}<span>{%$escaped_time%}</span>{%$tplData.tiptxt[0].txt2|escape%}</div>{%else%} <div class="opr_countdown_deadline">{%$tplData.deadline|escape%}</div>{%/if%}{%/block%}

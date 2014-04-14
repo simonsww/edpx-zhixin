@@ -1,1 +1,0 @@
-{%extends file='baidu/page.tpl'%}  {%block name="related_search_ext"%}<style>.bds_cy_dcwj{margin-bottom:40px;font-size:15px}.bds_cy_dcwj a{text-decoration:none}</style><div class="bds_cy_dcwj" style="text-align:center"><a href="http://mobads.baidu.com/ads/exp/e2/index.html?sc=pad" target="_black">5分钟填写问卷，赢取限量礼品</a></div>{%/block%}

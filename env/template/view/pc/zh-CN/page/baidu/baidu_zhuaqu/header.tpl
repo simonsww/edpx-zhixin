@@ -1,1 +1,0 @@
-{%extends file='baidu/header.tpl'%} {%block name="debug_header"%}<div id="debug_header" style="display:none"></div>{%/block%}

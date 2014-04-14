@@ -1,6 +1,0 @@
-{%extends 'base.tpl'%} {%block name='content'%}<tr><td class="f"><h3 class="t"><a target="_blank" class="op_tuangou_ttllink OP_LOG_BTN" href="http://tuan.baidu.com">【{%$tplData.location|highlight:0%}<em>{%$tplData.centerword|highlight:0%}团购</em>】<em>{%$tplData.centerword|highlight:0%}</em>优惠<em>团购</em>——百度<em>团购</em>,最全<em>团购</em>导航 </h3></a><div class="op_tuangou_content"> 最新最全的<em>{%$tplData.centerword|highlight:0%}团购</em>信息,美团,点评,窝窝,拉手,众多知名<em>团购</em>网站汇聚,1到3折<em>团购</em>，生活 娱乐 购物尽在百度<em>团购</em>!多款<em>团购</em>每日更新,找<em>{%$tplData.centerword|highlight:0%}团购</em>,就上百度<em>团购</em>,100%品质保证。 </div><div class="op_tuangou_showURL"><span style="color:#008000;">{%$tplData.url|regex_replace:'/(http|ftp|https):\/\//':''%} {%if $tplData.listardate!=""%}{%$tplData.listardate%}{%/if%}</span>{%if $tplData.showlamp!=""%} - <a target="_blank" href="http://open.baidu.com/" class="OP_LOG_BTN"></a>{%/if%}</div><script >
-    A.setup({ 
-        locpinyin: '{%$tplData.locpinyin%}',
-        centerword: '{%$tplData.centerword|escape:'javascript'%}'
-    });
-</script> </td></tr>{%/block%}

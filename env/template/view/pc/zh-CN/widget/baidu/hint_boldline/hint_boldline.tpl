@@ -1,1 +1,0 @@
-{%fis_widget%}<style>.boldline strong{font-size:1.1em}</style><div class="boldline se_common_hint c-gap-bottom c-container" data-id="{%$hint.id%}" data-tpl="{%$hint.templateName%}"><strong>{%$hint.hintData.hintText%}</strong></div>{%/fis_widget%}

@@ -1,1 +1,0 @@
-{%extends file='baidu/content.tpl'%} {%block name="content"%}{%loop_results theResult=$tplData.topResult id='at' fm='alxt'%}{%block name="content_left"%}{%/block%}{%block name="content_right"%}{%/block%}{%block name="content_bottom"%}{%/block%}{%/block%}

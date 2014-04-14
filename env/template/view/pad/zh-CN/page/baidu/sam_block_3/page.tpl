@@ -1,2 +1,0 @@
-{%extends file='sam_block_1/page.tpl'%}  {%block name="head_style_ext_block_tail"%}#bds-wraper a, #bds-wraper a em { {%*选用id选择符提高优先级*%} text-decoration: none;}{%/block%}{%block name="foot_script_ext_tail_append"%}with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://img.baidu.com/hunter/m/psquery_h_6419.js?st='+~(new Date()/864e5)];
-{%/block%}

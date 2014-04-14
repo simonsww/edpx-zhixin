@@ -1,1 +1,0 @@
-{%extends file='baidu/index.tpl'%} {%block name="index_global_vars_ext"%}{%$sugHost = "http://esug.baidu.com/su" scope="global"%}{%/block%}{%block name="__fis_page_header_block__"%}{%include file="widget/baidu/module_static_include/module_static_include.tpl" caching%}{%/block%}

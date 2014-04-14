@@ -1,1 +1,0 @@
-< P>EC L1< P>{%$tplData.ecResult|debug_print_var%}< P>EC L2< P>{%$tplData.ecResult.ecResultItem|debug_print_var%}< P>RSSE</P>{%$tplData.rsseResult|debug_print_var%}< P>APP</P>{%$tplData.appResult|debug_print_var%}
