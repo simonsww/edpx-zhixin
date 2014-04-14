@@ -25,7 +25,7 @@ var cli = {};
  * @const
  * @type {Array.<string>}
  */
-cli.options = ['root', 'data', 'side'];
+cli.options = ['root:', 'data', 'side:'];
 
 
 /**
@@ -126,7 +126,7 @@ var createFiles = function (args, opts) {
             +     '});\n'
             + '</script>',
 
-        'page.json': '{\n    '
+        'data.json': '{\n    '
             + '"item": {\n        '
             +     '"display": {\n            '
             +         '"extData": {\n            \n            '
@@ -137,13 +137,12 @@ var createFiles = function (args, opts) {
             + '}\n}',
 
         'page.less': '/**page.less: Write your less here*/',
-        'zhixin-config.js': '/*config.js*/\n\nvar config = {\n    '
-            +     'querys: [/*Input querys here*/],\n    '
+        'config.conf': '/**config.conf*/\n\nexports.config = {\n    '
+            +     'tpl: \'' + args[0] + '\',\n    '
+            +     'querys: [\'' + args[0] + '\'],\n    '
             +     'side: \'' + (opts.side === 'right' ? 'right' : 'left') + '\',\n    '
             +     'ajaxs: [{\n        \n    }],\n    '
             +     'amds: [{\n        \n    }]\n'
-            + '};\n\nexports.getConfig = function () {\n    '
-            + 'return config;\n'
             + '};'
     };
 
@@ -154,10 +153,10 @@ var createFiles = function (args, opts) {
      */
     var files = [
         'page.less',
-        'page.json',
+        'data.json',
         'page.html',
         '_page.tpl',
-        'zhixin-config.js'
+        'config.conf'
     ];
 
     /**
@@ -190,7 +189,7 @@ var createFiles = function (args, opts) {
         });
         files.forEach(function (file) {
             var filePath = path.resolve(projectPath, file);
-            if (opts.hasOwnProperty('d')) {
+            if (opts.d) {
                 fs.writeFileSync(
                     filePath, 
                     templates[file] || ''

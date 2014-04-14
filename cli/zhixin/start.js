@@ -25,7 +25,7 @@ var cli = {};
  * @const
  * @type {Array.<string>}
  */
-cli.options = ['port', 'config', 'root'];
+cli.options = ['config:'];
 
 
 /**
@@ -41,7 +41,7 @@ cli.description = '启动server，初始化开发环境';
  * @const
  * @type {string}
  */
-cli.usage = 'edp zhixin start [--port|-p] [--config|-c] [--root|-r]';
+cli.usage = 'edp zhixin start [--config|-c]';
 
 
 /**
@@ -52,10 +52,11 @@ cli.usage = 'edp zhixin start [--port|-p] [--config|-c] [--root|-r]';
  */
 cli.main = function (args, opts) {
 
+    var path = require('path');
+    var util = require('../../lib/util');
+
     var conf = {
-        root: opts.root || process.cwd(),
-        config: opts.config || './edpx-zhixin-config.js',
-        port: opts.port || 8848
+        config: opts.config || process.cwd()
     };
     
     require('../../index').start(conf);
