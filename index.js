@@ -14,9 +14,9 @@
 /**
  * 
  */
-exports.start = function() {
+exports.start = function(conf) {
     var sdk = require('./lib/sdk');
-    sdk.start();
+    sdk.start(conf);
 };
 
 //exports.start();

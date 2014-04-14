@@ -51,10 +51,14 @@ cli.usage = 'edp zhixin start [--port|-p] [--config|-c] [--root|-r]';
  * @param {Object} opts 命令运行选项
  */
 cli.main = function (args, opts) {
-    console.log('args:', args);
-    console.log('opts:', opts);
 
-    require('../../index').start(args, opts);
+    var conf = {
+        root: opts.root || process.cwd(),
+        config: opts.config || './edpx-zhixin-config.js',
+        port: opts.port || 8848
+    };
+    
+    require('../../index').start(conf);
 };
 
 /**

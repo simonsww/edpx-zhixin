@@ -65,8 +65,7 @@ var initFiles = function (args, opts) {
             output: process.stdout
         });
         rl.question('>> There is a exist project, cover it ?(y/n)', function (a) {
-            var re = a.trim();
-            if (re === 'y' || re === 'Y') {
+            if ('Y' === a.trim().toUpperCase()) {
                 rl.close();
                 util.rmdir(projectPath);
                 createFiles(args, opts);
@@ -111,33 +110,41 @@ var createFiles = function (args, opts) {
             + '{%*include file="page.html"*%}\n'
             + '<script>\n    '
             +     'A.setup(function () {\n        '
-            +         '// Inclue your js file here\n    '
+            +         '// Inclue your js file here\n        '
+            +         'var SMARTY_DATA = this.data.DATA; //smarty data\n    '
             +     '});\n'
             + '</script>\n'
             +'{%/block%}',
 
         'page.html': ''
-            + '{%strip%}\n\n    '
-            +     '<!--page.html: Input your tpl here-->\n\n'
+            + '{%strip%}\n    '
+            +     '<!--page.html: Input your tpl here-->\n'
             + '{%/strip%}\n'
-            + '<script>\n\n    '
-            +     '// Put your smarty varaible here when your js file want to use\n\n'
+            + '<script>\n    '
+            +     '// Put your smarty varaible here when your js file want to use\n    '
+            +     'A.setup(\'DATA\', {\n        \n    '
+            +     '});\n'
             + '</script>',
 
-        'page.json': ''
-            + '{\n    '
-            +     '"item": {\n        '
-            +         '"display": {\n            '
-            +             '"extData": {\n            \n            '
-            +             '},\n            '
-            +             '"tplData": {\n            \n            '
-            +             '}\n        '
-            +         '}\n    '
-            +     '}\n'
-            + '}',
+        'page.json': '{\n    '
+            + '"item": {\n        '
+            +     '"display": {\n            '
+            +         '"extData": {\n            \n            '
+            +         '},\n            '
+            +         '"tplData": {\n            \n            '
+            +         '}\n        '
+            +     '}\n    '
+            + '}\n}',
 
         'page.less': '/**page.less: Write your less here*/',
-        'config.js': ''
+        'zhixin-config.js': '/*config.js*/\n\nvar config = {\n    '
+            +     'querys: [/*Input querys here*/],\n    '
+            +     'side: \'' + (opts.side === 'right' ? 'right' : 'left') + '\',\n    '
+            +     'ajaxs: [{\n        \n    }],\n    '
+            +     'amds: [{\n        \n    }]\n'
+            + '};\n\nexports.getConfig = function () {\n    '
+            + 'return config;\n'
+            + '};'
     };
 
     /**
@@ -150,7 +157,7 @@ var createFiles = function (args, opts) {
         'page.json',
         'page.html',
         '_page.tpl',
-        'config.js'
+        'zhixin-config.js'
     ];
 
     /**
@@ -173,7 +180,7 @@ var createFiles = function (args, opts) {
     }
     else {
         fs.mkdirSync(projectPath);
-        console.log('>> `%s` create sucess.', projectPath);
+        console.log('>> `%s` create success.', projectPath);
         dirs.forEach(function (dir) {
             var dirPath = path.resolve(projectPath, dir);
             if (!fs.existsSync(dirPath)) {
@@ -205,7 +212,7 @@ var createFiles = function (args, opts) {
  * @param {Object} opts 命令运行选项
  */
 cli.main = function (args, opts) {
-
+    
     var stdin = process.stdin;
     var root = opts.root 
         ? (util.getAbsPath(opts.root) || process.cwd()) 
@@ -221,8 +228,7 @@ cli.main = function (args, opts) {
 
         rl.question('>> Do you really want to init `' + args[0] + '` project in `' + root + '` ?(y/n)', 
             function (a) {
-                var re = a.trim();
-                if (re === 'y' || re === 'Y') {
+                if ('Y' === a.trim().toUpperCase()) {
                     rl.close();
                     initFiles(args, opts);
                 }

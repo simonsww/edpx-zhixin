@@ -2,7 +2,7 @@ zhixin init
 ---------
 ### Usage
 
-    edp zhixin init [--root|-r] [--data|-d] [--side|-s]
+    edp zhixin init [--root|-r] [--side|-s] [--data|-d]
 
 ### Options
     
