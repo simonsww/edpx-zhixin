@@ -60,7 +60,16 @@ function render($tplName, $tplItem) {
     // 所以，在这里先进行一次处理
     $data = preprocess(json_decode(file_get_contents($tplItem['data']), 1));
 
-    return $smarty->do_render($data, $tplName);
+    $result = $smarty->do_render($data, $tplName);
+
+    // 有错误发生
+    $errors = CSmarty::getError();
+
+    if(count($errors) > 0) {
+        return $errors[0];
+    }
+
+    return $result;
 }
 
 function preprocess($data) {
