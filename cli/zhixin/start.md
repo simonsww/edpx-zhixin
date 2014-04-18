@@ -6,4 +6,4 @@ zhixin start
 
 ### Options
 
-    config: 全局的配置文件
+    config: 全局的配置文件所在的文件夹路径
