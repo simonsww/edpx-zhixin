@@ -1,8 +1,10 @@
 <?php
 
+require_once(dirname(__FILE__) . '/CJSON.php');
+
 $config = $argv[1];
 $config = urldecode($config);
-$config = json_decode($config, TRUE);
+$config = CJSON::decode($config);
 
 // 测试时，打印出所有的信息
 // error_reporting(E_ALL);
@@ -58,7 +60,7 @@ function render($tplName, $tplItem) {
 
     // 这里，$data有三种数据格式，第一种是我定义的最原始的数据格式，第二种是有的同学在display里面进行了细分，加了extData，第三种是平台的数据格式
     // 所以，在这里先进行一次处理
-    $data = preprocess(json_decode(file_get_contents($tplItem['data']), 1));
+    $data = preprocess(CJSON::decode(file_get_contents($tplItem['data'])));
 
     $result = $smarty->do_render($data, $tplName);
 
@@ -117,5 +119,5 @@ if($right) {
     }
 }
 
-echo json_encode($res);
+echo CJSON::encode($res);
 ?>
