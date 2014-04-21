@@ -3,7 +3,8 @@
 require_once(dirname(__FILE__) . '/CJSON.php');
 
 $config = $argv[1];
-$config = urldecode($config);
+// $config = urldecode($config);
+$config = file_get_contents($config);
 $config = CJSON::decode($config);
 
 // 测试时，打印出所有的信息
