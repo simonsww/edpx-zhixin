@@ -2,9 +2,14 @@
 
 require_once(dirname(__FILE__) . '/CJSON.php');
 
-$config = $argv[1];
-// $config = urldecode($config);
-$config = file_get_contents($config);
+$platform = getenv('OS');
+if(stripos($platform, 'window') !== false) {
+        $file = $_SERVER['APPDATA'] . '\\.edpx-zhixin\\data.json';
+} else {
+        $file = $_SERVER['HOME'] . '/.edpx-zhixin/data.json';
+}
+
+$config = file_get_contents($file);
 $config = CJSON::decode($config);
 
 // 测试时，打印出所有的信息
