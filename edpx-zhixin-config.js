@@ -1,5 +1,5 @@
 /**
- *@file edpx-zhixin-config.js
+ * @file edpx-zhixin-config.js
  */
 
 exports.zhixinConfig = {

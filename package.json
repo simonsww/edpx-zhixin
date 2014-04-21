@@ -1,37 +1,38 @@
 {
-  "name": "edpx-zhixin",
-  "version": "0.0.1",
-  "description": "edp zhixin package",
-  "main": "index.js",
-  "scripts": {
-    "test": "make -C test"
-  },
-  "dependencies": {
-    "edp-core": "~1.0.4",
-    "edp-config": "~1.0.0",
-    "edp-webserver": "~1.0.1",
-    "async": "~0.7.0",
-    "shelljs": "~0.2.6",
-    "wrench": "1.5.8"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ecomfe/edpx-zhixin.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ecomfe/edpx-zhixin/issues"
-  },
-  "contributors": [
-    {
-      "name": "sekiyika",
-      "email": "px.pengxing@gmail.com"
-    }
-  ],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "grunt": "^0.4.4",
-    "jasmine-node": "^1.14.2",
-    "grunt-jasmine-node": "^0.2.1"
-  }
+    "name": "edpx-zhixin",
+        "version": "0.0.1",
+        "description": "edp zhixin package",
+        "main": "index.js",
+        "scripts": {
+            "test": "make -C test"
+        },
+        "dependencies": {
+            "edp-core": "~1.0.4",
+            "edp-config": "~1.0.0",
+            "edp-webserver": "~1.0.1",
+            "async": "~0.7.0",
+            "shelljs": "~0.2.6",
+            "wrench": "~1.5.8",
+            "glob": "~3.2.9"
+        },
+        "repository": {
+            "type": "git",
+            "url": "git://github.com/ecomfe/edpx-zhixin.git"
+        },
+        "bugs": {
+            "url": "https://github.com/ecomfe/edpx-zhixin/issues"
+        },
+        "contributors": [
+        {
+            "name": "sekiyika",
+            "email": "px.pengxing@gmail.com"
+        }
+    ],
+        "author": "",
+        "license": "ISC",
+        "devDependencies": {
+            "grunt": "^0.4.4",
+            "jasmine-node": "^1.14.2",
+            "grunt-jasmine-node": "^0.2.1"
+        }
 }
