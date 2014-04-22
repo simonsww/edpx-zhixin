@@ -33,7 +33,7 @@ cli.options = [];
  * @const
  * @type {string}
  */
-cli.description = 'build卡片项目，编译生成预览所能用的page.tpl - 开发模式';
+cli.description = 'build卡片项目，编译生成预览所能用的page.tpl - 发布模式';
 
 
 /**
@@ -41,7 +41,7 @@ cli.description = 'build卡片项目，编译生成预览所能用的page.tpl - 
  * @const
  * @type {string}
  */
-cli.usage = 'edp zhixin build [tpl_project_name]';
+cli.usage = 'edp zhixin release [tpl_project_name]';
 
 
 /**
@@ -53,10 +53,10 @@ cli.usage = 'edp zhixin build [tpl_project_name]';
 cli.main = function (args, opts) {
     var edp = require('edp-core');
     if (args.length === 0) {
-        edp.log.error('>> Please input a project name which you want to build.');
+        edp.log.error('>> Please input a project name which you want to release.');
     }
     else {
-        require('../../lib/build').start(args, { r: false, info: 'build' });
+        require('../../lib/build').start(args, { r: true , info: 'release'});
     }
 };
 
