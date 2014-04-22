@@ -5,9 +5,9 @@
 ***************************************************************************/
 
 /**
- * @file /cli/zhixin/build.js ~ 2014-04-10 01:20
+ * @file /cli/zhixin/release.js ~ 2014-04-22 19:20
  * @author Johnson (zoumiaojiang@gmail.com)
- * @description edp zhixin build 模块
+ * @description edp zhixin release 模块
  * 
  */
 
@@ -33,7 +33,7 @@ cli.options = [];
  * @const
  * @type {string}
  */
-cli.description = 'build卡片项目，编译生成预览所能用的page.tpl - 发布模式';
+cli.description = 'release卡片项目，编译生成预览所能用的page.tpl - 发布模式';
 
 
 /**
@@ -51,13 +51,7 @@ cli.usage = 'edp zhixin release [tpl_project_name]';
  * @param {Object} opts 命令运行选项
  */
 cli.main = function (args, opts) {
-    var edp = require('edp-core');
-    if (args.length === 0) {
-        edp.log.error('>> Please input a project name which you want to release.');
-    }
-    else {
-        require('../../lib/build').start(args, { r: true , info: 'release'});
-    }
+    require('../../lib/build').start(args, { r: true , info: 'release'});
 };
 
 /**

@@ -5,7 +5,7 @@
 ***************************************************************************/
 
 /**
- * @file /cli/zhixin/build.js ~ 2014-04-10 01:20
+ * @file /cli/zhixin/build.js ~ 2014-04-22 10:20
  * @author Johnson (zoumiaojiang@gmail.com)
  * @description edp zhixin build 模块
  * 
@@ -51,13 +51,7 @@ cli.usage = 'edp zhixin build [tpl_project_name]';
  * @param {Object} opts 命令运行选项
  */
 cli.main = function (args, opts) {
-    var edp = require('edp-core');
-    if (args.length === 0) {
-        edp.log.error('>> Please input a project name which you want to build.');
-    }
-    else {
-        require('../../lib/build').start(args, { r: false, info: 'build' });
-    }
+    require('../../lib/build').start(args, { r: false, info: 'build' });
 };
 
 /**
