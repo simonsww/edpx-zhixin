@@ -4,9 +4,9 @@ require_once(dirname(__FILE__) . '/CJSON.php');
 
 $platform = getenv('OS');
 if(stripos($platform, 'window') !== false) {
-        $file = $_SERVER['APPDATA'] . '\\.edpx-zhixin\\data.json';
+    $file = $_SERVER['APPDATA'] . '\\.edpx-zhixin\\data.json';
 } else {
-        $file = $_SERVER['HOME'] . '/.edpx-zhixin/data.json';
+    $file = $_SERVER['HOME'] . '/.edpx-zhixin/data.json';
 }
 
 $config = file_get_contents($file);

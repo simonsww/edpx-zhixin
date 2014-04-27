@@ -17,7 +17,8 @@
         "glob": "~3.2.9",
         "uglify-js": "~2.3.0",
         "less": "~1.4.2",
-        "uglifycss": "~0.0.5"
+        "uglifycss": "~0.0.5",
+        "path-to-regexp": "~0.0.2"
     },
     "repository": {
         "type": "git",
