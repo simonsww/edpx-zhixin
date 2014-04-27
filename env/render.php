@@ -1,5 +1,6 @@
 <?php
-error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE );
+// error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE );
+error_reporting(0);
 require_once(dirname(__FILE__) . '/CJSON.php');
 
 $platform = getenv('OS');
@@ -63,6 +64,8 @@ $res = array(
 function render($tplName, $tplItem) {
     global $smarty;
     global $smartyConf;
+
+    $smarty::clearError();
 
     // 这里，$data有三种数据格式，第一种是我定义的最原始的数据格式，第二种是有的同学在display里面进行了细分，加了extData，第三种是平台的数据格式
     // 所以，在这里先进行一次处理
