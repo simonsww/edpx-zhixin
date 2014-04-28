@@ -14,6 +14,18 @@ exports.config = {
     platform: ['ipad', 'pc'],
     // platform: 'ipad',
     ajaxs: [
+        {
+            url: '/ur/submit/urreward',
+            handler: function() {
+                return fs.readFileSync(__dirname + '/data.json');
+            }
+        },
+        {
+            url: /^\/url.*$/,
+            handler: function() {
+                return fs.readFileSync(__dirname + '/data.json');
+            }
+        }
     ],
     watch: {
         filters: [
