@@ -1,0 +1,30 @@
+
+var fs = require('fs');
+
+exports.config = {
+    tpl: 'ecr_wealth_small',
+    querys: [
+        '手机', 
+        {
+            query: '智能手机',
+            data: 'data.json'
+        }
+    ],
+    side: 'left',
+    platform: ['ipad', 'pc'],
+    // platform: 'ipad',
+    ajaxs: [
+    ],
+    watch: {
+        filters: [
+            // 在这里只需要watch less文件的改动，因为模板是实时拼装的
+            '*.less'
+        ],
+        events: [
+            'addedFiles',
+            'modifiedFiles'
+        ]
+    }
+};
+
+

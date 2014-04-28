@@ -1,7 +1,7 @@
 <?php
-// error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE );
-error_reporting(0);
-require_once(dirname(__FILE__) . '/CJSON.php');
+error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE );
+# error_reporting(0);
+// require_once(dirname(__FILE__) . '/CJSON.php');
 
 $platform = getenv('OS');
 if(stripos($platform, 'window') !== false) {
@@ -11,7 +11,8 @@ if(stripos($platform, 'window') !== false) {
 }
 
 $config = file_get_contents($file);
-$config = CJSON::decode($config);
+// $config = CJSON::decode($config);
+$config = json_decode($config, TRUE);
 
 // 测试时，打印出所有的信息
 // error_reporting(E_ALL);
@@ -46,7 +47,7 @@ require (VUI_APP_PATH . '/libs/log/CLog.class.php');
 require (VUI_APP_PATH . '/utils/Util.php');
 // require (dirname(__FILE__) . '/phplib/bd/Conf.php');
 require (VUI_APP_PATH . '/libs/log/TplLog.php');
-require (VUI_APP_PATH . '/utils/base.php');
+#require (VUI_APP_PATH . '/utils/base.php');
 require (VUI_APP_PATH . '/utils/Volatile.php');
 
 $smartyConf = array(
@@ -65,11 +66,12 @@ function render($tplName, $tplItem) {
     global $smarty;
     global $smartyConf;
 
-    $smarty::clearError();
+    CSmarty::clearError();
 
     // 这里，$data有三种数据格式，第一种是我定义的最原始的数据格式，第二种是有的同学在display里面进行了细分，加了extData，第三种是平台的数据格式
     // 所以，在这里先进行一次处理
-    $data = preprocess(CJSON::decode(file_get_contents($tplItem['data'])));
+    // $data = preprocess(CJSON::decode(file_get_contents($tplItem['data'])));
+    $data = preprocess(json_decode(file_get_contents($tplItem['data']), TRUE));
 
     $result = $smarty->do_render($data, $tplName);
 
@@ -128,5 +130,5 @@ if($right) {
     }
 }
 
-echo CJSON::encode($res);
+echo json_encode($res);
 ?>

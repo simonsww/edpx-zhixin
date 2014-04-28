@@ -31,7 +31,16 @@ function smarty_modifier_limitlen($string, $length)
     // BY pengxing
     // 复写limitlen的逻辑
     if (strlen($string) > $length) {
-        $result = substr($string, 0, $length - 3) . '...';
+        if(function_exists('mb_substr')) {
+            $result = mb_substr($string, 0, intval($length/3) - 3) . '...';
+        } else {
+            $result = substr($string, 0, $length - 3) . '...';
+        }
+        if(!$result) {
+            return $result;
+        }
+    } else {
+        $result = $string;
     }
 
     return $result;

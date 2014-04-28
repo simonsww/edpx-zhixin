@@ -41,7 +41,6 @@
  */
 function smarty_modifier_highlight($string, $type=0)
 {
-
     // BY pengxing
     // 忽略highlight插件的效果
     return $string;
