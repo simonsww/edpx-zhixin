@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE );
-# error_reporting(0);
+// error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE );
+error_reporting(0);
 // require_once(dirname(__FILE__) . '/CJSON.php');
 
 $platform = getenv('OS');
@@ -47,7 +47,7 @@ require (VUI_APP_PATH . '/libs/log/CLog.class.php');
 require (VUI_APP_PATH . '/utils/Util.php');
 // require (dirname(__FILE__) . '/phplib/bd/Conf.php');
 require (VUI_APP_PATH . '/libs/log/TplLog.php');
-#require (VUI_APP_PATH . '/utils/base.php');
+// require (VUI_APP_PATH . '/utils/base.php');
 require (VUI_APP_PATH . '/utils/Volatile.php');
 
 $smartyConf = array(
