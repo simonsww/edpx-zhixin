@@ -9,7 +9,7 @@
     "dependencies": {
         "edp-core": "~1.0.4",
         "edp-config": "~1.0.0",
-        "edp-webserver": "~1.0.1",
+        "edp-webserver": "~1.0.10",
         "edp-watch": "~0.1.3",
         "async": "~0.7.0",
         "shelljs": "~0.2.6",
@@ -18,7 +18,10 @@
         "uglify-js": "~2.3.0",
         "less": "~1.4.2",
         "uglifycss": "~0.0.5",
-        "path-to-regexp": "~0.0.2"
+        "path-to-regexp": "~0.0.2",
+        "jQuery": "~1.7.4",
+        "jsdom": "~0.10.5",
+        "xmlhttprequest": "~1.6.0"
     },
     "repository": {
         "type": "git",
