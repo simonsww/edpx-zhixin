@@ -25,7 +25,7 @@ exports.php = 'php';
 /**
  * 指定依赖的base文件
  */
-exports.base = [
-    'c_base.tpl',
-    'c_right_base.tpl'
-];
+exports.base = {
+    left: './c_base.tpl',
+    right './c_right_base.tpl'
+};
