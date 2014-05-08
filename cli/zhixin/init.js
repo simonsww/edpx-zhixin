@@ -47,6 +47,7 @@ cli.usage = 'edp zhixin init card_project_name [--root|-r] [--data|-d] [--side|-
 var fs = require('fs');
 var path = require('path');
 var util = require('../../lib/util');
+var edp = require('edp-core');
 
 
 /**
@@ -137,12 +138,30 @@ var createFiles = function (args, opts) {
             + '}\n}',
 
         'page.less': '/**page.less: Write your less here*/',
-        'config.conf': '/**config.conf*/\n\nexports.config = {\n    '
+        'config.js': '/**config.conf*/\n\nexports.config = {\n    '
             +     'tpl: \'' + args[0] + '\',\n    '
-            +     'querys: [\'' + args[0] + '\'],\n    '
+            +     'querys: [\'' + args[0] + '\', {\n        '
+            +         'query: "",\n        '
+            +         'data: "data.json"\n    '
+            +     '}],\n    '
             +     'side: \'' + (opts.side === 'right' ? 'right' : 'left') + '\',\n    '
-            +     'ajaxs: [{\n        \n    }],\n    '
-            +     'amds: [{\n        \n    }]\n'
+            +     'ajaxs: [{\n        '
+            +         'url: "",\n        '
+            +         'file: "",\n        '
+            +         'handler: function () {\n            '
+            +             'return "ajax json data~";\n        '
+            +         '}\n    '
+            +     '}],\n    '
+            +     'amds: [{\n        \n    }],\n    '
+            +     'watch: {\n        '
+            +         'filters: [\n            '
+            +             '"*.less"\n        '
+            +         '],\n        '
+            +         'events: [\n            '
+            +             '"addedFiles",\n            '
+            +             '"modifiedFiles"\n        '
+            +         ']\n    '
+            +     '}\n'
             + '};'
     };
 
@@ -156,7 +175,7 @@ var createFiles = function (args, opts) {
         'data.json',
         'page.html',
         '_page.tpl',
-        'config.conf'
+        'config.js'
     ];
 
     /**
@@ -175,17 +194,17 @@ var createFiles = function (args, opts) {
     var pageRoot = path.join(opts.root, './page');
     
     if (!fs.existsSync(pageRoot)) {
-        console.log('>> Please create `%s` first.', pageRoot);
+        edp.log.fatal('>> Please create `%s` first.', pageRoot);
     }
     else {
         fs.mkdirSync(projectPath);
-        console.log('>> `%s` create success.', projectPath);
+        edp.log.info('>> `%s` create success.', projectPath);
         dirs.forEach(function (dir) {
             var dirPath = path.resolve(projectPath, dir);
             if (!fs.existsSync(dirPath)) {
                 fs.mkdirSync(dirPath);
             }
-            console.log('>> `%s` create success.', dirPath);
+            edp.log.info('>> `%s` create success.', dirPath);
         });
         files.forEach(function (file) {
             var filePath = path.resolve(projectPath, file);
@@ -198,7 +217,7 @@ var createFiles = function (args, opts) {
             else {
                 fs.writeFileSync(filePath, '');
             }
-            console.log('>> `%s` create success.', filePath);
+            edp.log.info('>> `%s` create success.', filePath);
         });
     }
 };
@@ -238,7 +257,7 @@ cli.main = function (args, opts) {
         ); 
     }
     else {
-        console.log('>> Please input a card_project_name.');
+        edp.log.fatal('>> Please input a card_project_name.');
     }
 
 };
