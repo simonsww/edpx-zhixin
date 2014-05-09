@@ -18,10 +18,7 @@
         "uglify-js": "~2.3.0",
         "less": "~1.4.2",
         "uglifycss": "~0.0.5",
-        "path-to-regexp": "~0.0.2",
-        "jQuery": "~1.7.4",
-        "jsdom": "~0.10.5",
-        "xmlhttprequest": "~1.6.0"
+        "path-to-regexp": "~0.0.2"
     },
     "repository": {
         "type": "git",
