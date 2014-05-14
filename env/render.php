@@ -50,6 +50,9 @@ require (VUI_APP_PATH . '/libs/log/TplLog.php');
 // require (VUI_APP_PATH . '/utils/base.php');
 require (VUI_APP_PATH . '/utils/Volatile.php');
 
+// 读取cssUI
+$cssUI = json_decode(file_get_contents(dirname(__FILE__) . '/cssUI.json'), true);
+
 $smartyConf = array(
     'language' => 'zh-CN',
     'type' => 'ecom',
@@ -86,6 +89,7 @@ function render($tplName, $tplItem) {
 }
 
 function preprocess($data) {
+    global $cssUI;
     $result = array(
         'resultData' => array(),
         'strategy' => array()
@@ -110,6 +114,11 @@ function preprocess($data) {
         );
         $result['strategy']['hilightWord'] = $data['item']['key'];
     }
+
+    // 给result加上feData
+    $result['resultData']['extData']['feData'] = array(
+        'cssUI' => $cssUI
+    );
 
     return $result;
 }
