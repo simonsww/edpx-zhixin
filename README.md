@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/ecomfe/edpx-zhixin.png?branch=master)](https://travis-ci.org/ecomfe/edxp-zhixin) [![Dependencies Status](https://david-dm.org/ecomfe/edpx-zhixin.png)](https://david-dm.org/ecomfe/edpx-zhixin)
 
-## Usage
 
 `edpx-zhixin`是edp的一个扩展，提供给百度的FE开发搜索结果页模板的工具
 
@@ -157,6 +156,8 @@ exports.config = {
 
 
 #### edp zhixin build
+
+`build`可以让用户手动编译生成page.tpl文件，代码不压缩
 
 #### edp zhixin release
 
