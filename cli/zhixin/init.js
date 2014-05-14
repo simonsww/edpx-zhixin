@@ -151,7 +151,7 @@ var createFiles = function (args, opts) {
             +         'handler: function (context) {\n            '
             +             'return "ajax json data~";\n        '
             +         '}\n    '
-            +     '}]*/,\n    '
+            +     '}],*/\n    '
             +     'amds: [{\n        \n    }],\n    '
             +     'watch: {\n        '
             +         'filters: [\n            '
