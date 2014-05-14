@@ -35,8 +35,6 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "grunt": "^0.4.4",
-        "jasmine-node": "^1.14.2",
-        "grunt-jasmine-node": "^0.2.1"
+        "jasmine-node": "^1.14.2"
     }
 }

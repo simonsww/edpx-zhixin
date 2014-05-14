@@ -155,6 +155,7 @@ var createFiles = function (args, opts) {
             +     'amds: [{\n        \n    }],\n    '
             +     'watch: {\n        '
             +         'filters: [\n            '
+            +             '"_page.tpl",\n            '
             +             '"*.less"\n        '
             +         '],\n        '
             +         'events: [\n            '
