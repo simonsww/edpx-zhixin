@@ -2,7 +2,7 @@
 var fs = require('fs');
 
 exports.config = {
-    tpl: 'ecr_wealth_small',
+    tpl: 'ecl_demo',
     querys: [
         '手机', 
         {
@@ -22,14 +22,18 @@ exports.config = {
         },
         {
             url: /^\/url.*$/,
-            handler: function() {
-                return fs.readFileSync(__dirname + '/data.json');
+            file: 'data/data.json'
+        },
+        {
+            url: /^\/ecomui.*$/,
+            handler: function(context) {
+                (proxy('www.baidu.com', 80))(context);
             }
         }
     ],
     watch: {
         filters: [
-            // 在这里只需要watch less文件的改动，因为模板是实时拼装的
+            '_page.tpl',
             '*.less'
         ],
         events: [

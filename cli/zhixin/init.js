@@ -148,10 +148,10 @@ var createFiles = function (args, opts) {
             +     '/*ajaxs: [{\n        '
             +         'url: "",\n        '
             +         'file: "",\n        '
-            +         'handler: function () {\n            '
+            +         'handler: function (context) {\n            '
             +             'return "ajax json data~";\n        '
             +         '}\n    '
-            +     '}]*/,\n    '
+            +     '}],*/\n    '
             +     'amds: [{\n        \n    }],\n    '
             +     'watch: {\n        '
             +         'filters: [\n            '
@@ -208,15 +208,15 @@ var createFiles = function (args, opts) {
         });
         files.forEach(function (file) {
             var filePath = path.resolve(projectPath, file);
-            if (opts.d) {
-                fs.writeFileSync(
-                    filePath, 
-                    templates[file] || ''
-                );
-            }
-            else {
-                fs.writeFileSync(filePath, '');
-            }
+            // if (opts.d) {
+            fs.writeFileSync(
+                filePath, 
+                templates[file] || ''
+            );
+            // }
+            // else {
+            //     fs.writeFileSync(filePath, '');
+            // }
             edp.log.info('>> `%s` create success.', filePath);
         });
     }
