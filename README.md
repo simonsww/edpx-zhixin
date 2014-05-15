@@ -34,7 +34,7 @@ edp INFO root = [/Users/sekiyika/Documents/work/src/], listen = [8848]
 `edpx-zhixin`要求开发者遵循目录规范，如下：
 
     edpx-zhixin-config.js
-    weigou
+    src
         page
             ecl_ec_weigou
                 config.js
@@ -42,9 +42,6 @@ edp INFO root = [/Users/sekiyika/Documents/work/src/], listen = [8848]
                 page.tpl
                 page.html
                 data.json
-    finance
-        page
-            ecl_wealth_list
                 ...
                 
 
