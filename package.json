@@ -2,7 +2,6 @@
     "name": "edpx-zhixin",
     "version": "0.0.1",
     "description": "edp zhixin package",
-    "main": "index.js",
     "scripts": {
         "test": "make -C test"
     },
