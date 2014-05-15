@@ -27,5 +27,5 @@ exports.php = 'php';
  */
 exports.base = {
     left: './c_base.tpl',
-    right './c_right_base.tpl'
+    right: './c_right_base.tpl'
 };
