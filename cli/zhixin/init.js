@@ -138,7 +138,7 @@ var createFiles = function (args, opts) {
             + '}\n}',
 
         'page.less': '/**page.less: Write your less here*/',
-        'config.js': '/**config.conf*/\n\nexports.config = {\n    '
+        'config.js': '/**config.js*/\n\nexports.config = {\n    '
             +     'tpl: \'' + args[0] + '\',\n    '
             +     'querys: [\'' + args[0] + '\', {\n        '
             +         'query: "",\n        '
