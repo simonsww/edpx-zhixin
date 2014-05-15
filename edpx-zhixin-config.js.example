@@ -4,7 +4,7 @@
 
 exports.server = {
     documentRoot: '../../work', // 项目根目录相对于此config文件的相对路径， 最好写成绝对路径, 减少歧义
-    port: 8848
+    port: 8858
 };
 
 /**
