@@ -111,8 +111,10 @@ class CJSON
 
 			case 'string':
 
+                /*
 				if(function_exists('json_encode'))
-					return json_encode($var);
+                    return json_encode($var);
+                 */
 
 				// STRINGS ARE EXPECTED TO BE IN ASCII OR UTF-8 FORMAT
 				$ascii = '';
