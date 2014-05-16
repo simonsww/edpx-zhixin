@@ -1,7 +1,7 @@
 <?php
 // error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE );
 error_reporting(0);
-// require_once(dirname(__FILE__) . '/CJSON.php');
+require_once(dirname(__FILE__) . '/CJSON.php');
 
 $platform = getenv('OS');
 if(stripos($platform, 'window') !== false) {
@@ -139,5 +139,5 @@ if($right) {
     }
 }
 
-echo json_encode($res);
+echo CJSON::encode($res);
 ?>
