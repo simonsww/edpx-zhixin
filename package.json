@@ -1,6 +1,6 @@
 {
     "name": "edpx-zhixin",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "edp zhixin package",
     "scripts": {
         "test": "make -C test"
@@ -10,13 +10,13 @@
         "edp-config": "~1.0.0",
         "edp-webserver": "~1.0.10",
         "edp-watch": "~0.1.3",
-        "shelljs": "~0.2.6",
+        "shelljs": "~0.3.0",
         "wrench": "~1.5.8",
-        "glob": "~3.2.9",
-        "uglify-js": "~2.3.0",
-        "less": "~1.4.2",
+        "glob": "~4.0.0",
+        "uglify-js": "~2.4.13",
+        "less": "~1.7.0",
         "uglifycss": "~0.0.5",
-        "path-to-regexp": "~0.0.2"
+        "path-to-regexp": "~0.1.2"
     },
     "repository": {
         "type": "git",
