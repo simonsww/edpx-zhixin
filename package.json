@@ -1,6 +1,6 @@
 {
     "name": "edpx-zhixin",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "edp zhixin package",
     "scripts": {
         "test": "make -C test"
