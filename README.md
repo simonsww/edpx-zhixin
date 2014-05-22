@@ -120,12 +120,12 @@ _page.tpl 内容：
 {%*include file="./ajax-list.utpl"*%}
 ```
 
-_注：形如：`ajax-list.utpl`会被编译成`ajaxlistRender`_
+注：形如：`ajax-list.utpl`会被编译成`ajaxlistRender`函数，可以在js中直接调用
 
-ajax.utpl 内容：
+ajax-list.utpl 内容：
 
 ```
-/*utpl:innerFn=false*/
+/*utpl:innerFn=false,trim=false*/
 <ul>
     {%each(tplData.list, function(item, index){%}
         <li><a href="{%=item.link%}">{%-item.title%}</a></li>
@@ -136,6 +136,19 @@ ajax.utpl 内容：
     {%=len%}条记录
 {%}%}
 ```
+
+其中
+
+```
+/*utpl:innerFn=false,strip=false*/
+```
+
+为编译选项：
+
+1. innerFn=false，表示`each`,`escape`等函数不会在模板中内置，需要外部提供
+
+2. strip=false，表示不会自动去除空格、注释
+
 
 
 ##### config.js
