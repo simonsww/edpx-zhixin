@@ -120,17 +120,19 @@ _page.tpl 内容：
 {%*include file="./ajax-list.utpl"*%}
 ```
 
-注：形如：`ajax-list.utpl`会被编译成`ajaxlistRender`函数，可以在js中直接调用
+注：形如：`ajax-list.utpl`会被编译成`ajaxListRender`函数，可以在js中直接调用
 
 ajax-list.utpl 内容：
 
 ```
 /*utpl:innerFn=false,trim=false*/
+<!--列表项目-->
 <ul>
     {%each(tplData.list, function(item, index){%}
         <li><a href="{%=item.link%}">{%-item.title%}</a></li>
     {%)};%}
 </ul>
+<!--记录数-->
 {%len = tplData.list.length%}
 {%if (len!==0) {%}
     {%=len%}条记录
