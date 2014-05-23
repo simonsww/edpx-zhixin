@@ -88,7 +88,7 @@ exports.base = {
 
 ###开发模板
 
-从新建模板到release，都提供了响应的命令和工具
+从新建模板到release，都提供了相应的命令和工具
 
 #### edp zhixin init
 
@@ -104,6 +104,54 @@ edp INFO >> `/Users/sekiyika/Documents/work/src/finance/page/ecl_fn_demo/config.
 ```
 
 这样就构建好了一个模板开发所需的基本文件
+
+
+#### 使用 utpl 支持模板编写
+
+集成utpl的模板功能，在`_page.tpl`中引入后，自动编译成相关的函数使用，
+utpl语法同`underscore.js`的模板语法类似，请参考[underscore](http://documentcloud.github.io/underscore/) 获取更多信息
+
+例如：
+
+
+_page.tpl 内容：
+
+```
+{%*include file="./ajax-list.utpl"*%}
+```
+
+注：形如：`ajax-list.utpl`会被编译成`ajaxListRender`函数，可以在js中直接调用
+
+ajax-list.utpl 内容：
+
+```
+/*utpl:innerFn=false,trim=false*/
+<!--列表项目-->
+<ul>
+    {%each(tplData.list, function(item, index){%}
+        <li><a href="{%=item.link%}">{%-item.title%}</a></li>
+    {%)};%}
+</ul>
+<!--记录数-->
+{%len = tplData.list.length%}
+{%if (len!==0) {%}
+    {%=len%}条记录
+{%}%}
+```
+
+其中
+
+```
+/*utpl:innerFn=false,strip=false*/
+```
+
+为编译选项：
+
+1. innerFn=false，表示`each`,`escape`等函数不会在模板中内置，需要外部提供
+
+2. strip=false，表示不会自动去除空格、注释
+
+
 
 ##### config.js
 
