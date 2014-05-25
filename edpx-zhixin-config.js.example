@@ -37,3 +37,15 @@ exports.base = {
     left: './c_base.tpl',
     right: './c_right_base.tpl'
 };
+
+
+/**
+ * wise相关的base文件
+ */
+// exports.base = {
+//    iphone: './aladdin/base/iphone.tpl',
+//    big: './aladdin/base/big.tpl',
+//    wml: './aladdin/base/wml.tpl',
+//    middle: './aladdin/base/middle.tpl',
+//    utouch: './aladdin/base/utouch.tpl'
+// };

@@ -13,6 +13,9 @@ exports.config = {
     side: 'left',
     platform: ['ipad', 'pc'],
     // platform: 'ipad',
+    //wise相关
+    //platform: ['iphone', 'utouch', 'big'],
+    //platform: 'iphone',
     ajaxs: [
         {
             url: '/ur/submit/urreward',
