@@ -1,1 +1,0 @@
-{%extends "search/searchaladdin/base/iphone.tpl"%}

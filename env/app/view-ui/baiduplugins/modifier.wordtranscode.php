@@ -20,9 +20,19 @@
  * @param string
  * @return string
  */
-function smarty_modifier_wordtruncate($str, $length = 0, $encoding = 'UTF-8', $endMark = '..', $rawStartLabel = '\2', $rawEndLabel = '\3', $outStartLabel = '<em>', $outEndLabel = '</em>',$outpuEncoding='UTF-8')
+function smarty_modifier_wordtranscode($str, $inpuencoding = 'GBK', $outpuEncoding='UTF-8')
 {
-    return Wise_Utils::wordEmTruncate($str, $length, $encoding, $endMark, $rawStartLabel, $rawEndLabel, $outStartLabel, $outEndLabel, $outpuEncoding);
+    if( strtolower($inpuencoding) == 'gbk') {
+        
+        $inpuencoding = 'gb18030';
+    }
+
+    if( strtolower($outpuEncoding) == 'gbk') {
+
+        $outpuEncoding = 'gb18030';
+    }
+    
+    return iconv($inpuencoding, $outpuEncoding, $str);
 }
 
 /* vim: set expandtab: */
