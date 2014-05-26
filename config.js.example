@@ -3,6 +3,7 @@ var fs = require('fs');
 
 exports.config = {
     tpl: 'ecl_demo',
+    //注意，wise相关的query暂不支持中文匹配，中文query模板将不出
     querys: [
         '手机', 
         {
