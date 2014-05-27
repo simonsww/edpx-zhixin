@@ -25,6 +25,14 @@ exports.proxy = {
 };
 
 /**
+ * wise相关的host
+ */
+//exports.proxy = {
+//    hostname: 'm.baidu.com',
+//    port: 80
+//};
+
+/**
  * 指定php可执行的路径
  * @type {string}
  */
@@ -40,12 +48,7 @@ exports.base = {
 
 
 /**
- * wise相关的base文件
+ * wise相关的base文件目录
+ * 当前wise存在两个版本的卡片基础模板，这里默认两个都进行拷贝
  */
-// exports.base = {
-//    iphone: './aladdin/base/iphone.tpl',
-//    big: './aladdin/base/big.tpl',
-//    wml: './aladdin/base/wml.tpl',
-//    middle: './aladdin/base/middle.tpl',
-//    utouch: './aladdin/base/utouch.tpl'
-// };
+// exports.base = 'wise';
