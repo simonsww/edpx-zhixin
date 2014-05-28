@@ -25,6 +25,12 @@ exports.proxy = {
 };
 
 /**
+ * 如果网页中有同名模板，默认干掉同名模板
+ */
+exports.removeSameTpl = true;
+
+
+/**
  * wise相关的host
  */
 //exports.proxy = {
