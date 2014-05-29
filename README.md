@@ -72,6 +72,20 @@ exports.proxy = {
 };
 
 /**
+ * 如果网页中有同名模板，默认干掉同名模板
+ */
+exports.removeSameTpl = true;
+
+
+/**
+ * wise相关的host
+ */
+//exports.proxy = {
+//    hostname: 'm.baidu.com',
+//    port: 80
+//};
+
+/**
  * 指定php可执行的路径
  * @type {string}
  */
@@ -88,13 +102,7 @@ exports.base = {
 /**
  * wise相关的base文件
  */
-// exports.base = {
-//    iphone: './aladdin/base/iphone.tpl',
-//    big: './aladdin/base/big.tpl',
-//    wml: './aladdin/base/wml.tpl',
-//    middle: './aladdin/base/middle.tpl',
-//    utouch: './aladdin/base/utouch.tpl'
-// };
+// exports.base = 'wise';
 ```
 
 ###开发模板
