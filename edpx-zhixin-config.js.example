@@ -25,6 +25,20 @@ exports.proxy = {
 };
 
 /**
+ * 如果网页中有同名模板，默认干掉同名模板
+ */
+exports.removeSameTpl = true;
+
+
+/**
+ * wise相关的host
+ */
+//exports.proxy = {
+//    hostname: 'm.baidu.com',
+//    port: 80
+//};
+
+/**
  * 指定php可执行的路径
  * @type {string}
  */
@@ -37,3 +51,10 @@ exports.base = {
     left: './c_base.tpl',
     right: './c_right_base.tpl'
 };
+
+
+/**
+ * wise相关的base文件目录
+ * 当前wise存在两个版本的卡片基础模板，这里默认两个都进行拷贝
+ */
+// exports.base = 'wise';

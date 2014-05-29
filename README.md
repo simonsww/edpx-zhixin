@@ -84,6 +84,17 @@ exports.base = {
     left: 'c_base.tpl',
     right: 'c_right_base.tpl'
 };
+
+/**
+ * wise相关的base文件
+ */
+// exports.base = {
+//    iphone: './aladdin/base/iphone.tpl',
+//    big: './aladdin/base/big.tpl',
+//    wml: './aladdin/base/wml.tpl',
+//    middle: './aladdin/base/middle.tpl',
+//    utouch: './aladdin/base/utouch.tpl'
+// };
 ```
 
 ###开发模板
@@ -104,6 +115,24 @@ edp INFO >> `/Users/sekiyika/Documents/work/src/finance/page/ecl_fn_demo/config.
 ```
 
 这样就构建好了一个模板开发所需的基本文件
+
+#### edp zhixin initwise
+
+创建wise相关的模板命令:
+
+```
+edp zhixin initwise [--root|-r] [--platform|-p] [--data|-d]
+```
+
+目前支持的wise平台为 iphone,utouch,big，在访问的时候url后缀添加
+
+&tn=iphone、&tn=utouch、&tn=big， 切换到相应的平台
+
+例如：
+
+http://m.baidu.com/s?word=%E7%94%B7%E7%A7%91%E5%8C%BB%E9%99%A2&sa=tb&st=111041&tn=utouch
+
+会调用utouch版本的模板
 
 
 #### 使用 utpl 支持模板编写
@@ -169,6 +198,7 @@ exports.config = {
     ],  
     side: 'left', // 模渲染的位置，有left和right的取值
     platform: ['ipad', 'pc'], // 该模板适用于ipad或者pc，根据url中的dsp参数来区分，可以为platform: 'pc'
+    //platform: ['iphone', 'utouch', 'big'], //wise相关的platform，根据url中的tn参数来区分，tn=utouch，会切换到简版模板
     ajaxs: [ // 代理请求的数据，常用于代理/ecomui的请求
         {
             url: /a.js/,
