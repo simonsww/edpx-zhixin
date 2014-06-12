@@ -69,7 +69,7 @@ function render($tplName, $tplItem) {
     // 这里，$data有三种数据格式，第一种是我定义的最原始的数据格式，第二种是有的同学在display里面进行了细分，加了extData，第三种是平台的数据格式
     // 所以，在这里先进行一次处理
     // $data = preprocess(CJSON::decode(file_get_contents($tplItem['data'])));
-    $data = preprocess(json_decode(file_get_contents($tplItem['data']), TRUE));
+    $data = preprocess(json_decode(file_get_contents($tplItem['data']), TRUE), $tplName);
 
     $result = $smarty->do_render($data, $tplName);
 
@@ -83,7 +83,7 @@ function render($tplName, $tplItem) {
     return $result;
 }
 
-function preprocess($data) {
+function preprocess($data, $tplName) {
 
     $result = array(
         'resultData' => array(),
@@ -96,11 +96,16 @@ function preprocess($data) {
             'OriginQuery' => $data['document'][0]['item']['key']
         );
         $result['strategy']['hilightWord'] = $data['document'][0]['item']['key'];
+
     } elseif($data['item'] && $data['item']['display'] && $data['item']['display']['tplData']) {
         // 第二种格式
         $result['resultData']['tplData'] = $data['item']['display']['tplData'];
         $result['resultData']['extData'] = $data['item']['display']['extData'];
+        $result['resultData']['extData'] = $data['item']['display']['extData'];
         $result['strategy']['hilightWord'] = $data['item']['key'];
+        if(isset($data['item']['display']['alaData'])) {
+            $result['resultData']['alaData'] = $data['item']['display']['alaData'];
+        }
     } else {
         // 第一种格式
         $result['resultData']['tplData'] = $data['item']['display'];
@@ -109,6 +114,14 @@ function preprocess($data) {
         );
         $result['strategy']['hilightWord'] = $data['item']['key'];
     }
+
+    //添加tpl
+    if(!isset($result['resultData']['alaData'])) {
+        $result['resultData']['alaData'] = array();
+    }
+
+    $result['resultData']['alaData']['srcid'] = $tplName;
+    $result['resultData']['alaData']['resourceid']= $tplName;
 
     return $result;
 }
