@@ -14,7 +14,7 @@ $ edp zhixin start
 10:45:21 [INFO] monitor -> /Users/sekiyika/Documents/work/src
 10:45:21 all plugins have been loaded.
 edp INFO EDP WebServer start, http://192.168.1.106:8848
-edp INFO root = [/Users/sekiyika/Documents/work/src/], listen = [8848] 
+edp INFO root = [/Users/sekiyika/Documents/work/src/], listen = [8848]
 ```
 
 ### 指定配置文件
@@ -22,11 +22,11 @@ edp INFO root = [/Users/sekiyika/Documents/work/src/], listen = [8848]
 通过`--config`参数，可以指定edpx-zhixin的配置文件
 
 ```
-$ edp zhixin start --config=src/edpx-zhixin-config.js 
+$ edp zhixin start --config=src/edpx-zhixin-config.js
 10:52:26 [INFO] monitor -> /Users/sekiyika/Documents/work/src
 10:52:26 all plugins have been loaded.
 edp INFO EDP WebServer start, http://192.168.1.106:8848
-edp INFO root = [/Users/sekiyika/Documents/work/src/], listen = [8848] 
+edp INFO root = [/Users/sekiyika/Documents/work/src/], listen = [8848]
 ```
 
 ### 目录结构
@@ -43,7 +43,7 @@ edp INFO root = [/Users/sekiyika/Documents/work/src/], listen = [8848]
                 page.html
                 data.json
                 ...
-                
+
 
 ### 配置edpx-zhixin
 
@@ -57,7 +57,7 @@ edp INFO root = [/Users/sekiyika/Documents/work/src/], listen = [8848]
 /**
  * edpx-zhixin的配置
  */
-exports.server = { 
+exports.server = {
     documentRoot: './', // documentRoot以配置文件所在的目录来计算绝对路径，默认为process.cwd()
     port: 8848 // edpx-zhixin的启动端口，默认为8848
 };
@@ -66,7 +66,7 @@ exports.server = {
  * 用来配置开发环境依赖的结果页机器地址，可以配置线下机器
  * 默认hostname是www.baidu.com，port为80
  */
-exports.proxy = { 
+exports.proxy = {
     hostname: 'www.baidu.com',
     port: 80
 };
@@ -94,7 +94,7 @@ exports.php = 'php'; // 指定渲染模板使用的php路径，如果path中有�
 /**
  * 指定依赖的base文件，默认会使用edpx-zhixin中自带的c_base.tpl和c_right_base.tpl文件
  */
-exports.base = { 
+exports.base = {
     left: 'c_base.tpl',
     right: 'c_right_base.tpl'
 };
@@ -167,7 +167,7 @@ ajax-list.utpl 内容：
 <ul>
     {%each(tplData.list, function(item, index){%}
         <li><a href="{%=item.link%}">{%-item.title%}</a></li>
-    {%)};%}
+    {%});%}
 </ul>
 <!--记录数-->
 {%len = tplData.list.length%}
@@ -195,15 +195,15 @@ ajax-list.utpl 内容：
 `config.js`是每个模板目录下都需要的一个配置文件，主要包含和该模板相关的配置
 
 ```javascript
-exports.config = { 
+exports.config = {
     tpl: 'ecl_fn_demo', // 模板明
     querys: [
         'iphone',  // 命中该模板时的query，不指定data会默认使用data.json文件作为数据文件
-        {   
+        {
             query: '游戏',
             data: 'data.json' // 指定渲染所需要使用的数据文件
         }
-    ],  
+    ],
     side: 'left', // 模渲染的位置，有left和right的取值
     platform: ['ipad', 'pc'], // 该模板适用于ipad或者pc，根据url中的dsp参数来区分，可以为platform: 'pc'
     //platform: ['iphone', 'utouch', 'big'], //wise相关的platform，根据url中的tn参数来区分，tn=utouch，会切换到简版模板
