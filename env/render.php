@@ -106,6 +106,18 @@ function preprocess($data) {
         $result['resultData']['tplData'] = $data['item']['display']['tplData'];
         $result['resultData']['extData'] = $data['item']['display']['extData'];
         $result['strategy']['hilightWord'] = $data['item']['key'];
+        // for c_base.tpl:  $extData.feData.isLeftImageMode -> $templateConfig.isLeftImageMode
+        if(true
+           && is_array($result['resultData']['extData'])
+           && is_array($result['resultData']['extData']['feData'])
+           && isset   ($result['resultData']['extData']['feData']['isLeftImageMode'])
+        ) {
+            if (!is_array($result['resultData']['templateConfig'])) {
+                $result['resultData']['templateConfig'] = array();
+            }
+            $result['resultData']['templateConfig']['isLeftImageMode']
+                = $result['resultData']['extData']['feData']['isLeftImageMode'];
+        }
     } else {
         // 第一种格式
         $result['resultData']['tplData'] = $data['item']['display'];
@@ -117,7 +129,13 @@ function preprocess($data) {
 
     // 给result加上feData
     $result['resultData']['extData']['feData'] = array(
-        'cssUI' => $cssUI
+        'cssUI' => $cssUI,
+        'isLeftImageMode' => (true
+                                  && is_array($result['resultData']['templateConfig'])
+                                  && isset   ($result['resultData']['templateConfig']['isLeftImageMode'])
+                             )
+                             ? $result['resultData']['templateConfig']['isLeftImageMode']
+                             : null
     );
 
     return $result;
