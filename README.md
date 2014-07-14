@@ -196,7 +196,7 @@ ajax-list.utpl 内容：
 
 ```javascript
 exports.config = {
-    tpl: 'ecl_fn_demo', // 模板明
+    tpl: 'ecl_fn_demo', // 模板名
     querys: [
         'iphone',  // 命中该模板时的query，不指定data会默认使用data.json文件作为数据文件
         {
@@ -216,6 +216,7 @@ exports.config = {
             }
         }
     ],
+    //build: 'release', // 缺省相当于 edp zhixin build，加上相当于 edp zhixin release （下文提及）
     watch: { // 监控源文件的变化并编译产出page.tpl文件
         filters: [
             '_page.tpl',
