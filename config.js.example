@@ -34,6 +34,7 @@ exports.config = {
             }
         }
     ],
+    //build: 'release',
     watch: {
         filters: [
             '_page.tpl',
