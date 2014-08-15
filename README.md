@@ -162,16 +162,16 @@ _page.tpl 内容：
 ajax-list.utpl 内容：
 
 ```
-/*utpl:innerFn=false,trim=false*/
+/*utpl:innerFn=false,strip=false*/
 <!--列表项目-->
 <ul>
-    {%each(tplData.list, function(item, index){%}
-        <li><a href="{%=item.link%}">{%-item.title%}</a></li>
+    {%each(tplData.list, function (item, index) {%}
+        <li><a href="{%=item.link%}">{%=escape(item.title)%}</a></li>
     {%});%}
 </ul>
 <!--记录数-->
-{%len = tplData.list.length%}
-{%if (len!==0) {%}
+{%var len = tplData.list.length;%}
+{%if (len !== 0) {%}
     {%=len%}条记录
 {%}%}
 ```
